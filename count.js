@@ -3,10 +3,14 @@ const targetDate = new Date("2024-04-28 11:30:00");
 const updateCountdown = () => {
     const currentDate = new Date();
     const timeDiff = targetDate.getTime() - currentDate.getTime();
-    const secondsDiff = Math.floor(timeDiff / 1000) % 60;
-    const minutesDiff = Math.floor(secondsDiff / 60) % 60;
-    const hoursDiff = Math.floor(minutesDiff / 60) % 24;
-    const daysDiff = Math.floor(hoursDiff / 24);
+    let secondsDiff = Math.floor(timeDiff / 1000);
+    let minutesDiff = Math.floor(secondsDiff / 60);
+    let hoursDiff = Math.floor(minutesDiff / 60);
+    let daysDiff = Math.floor(hoursDiff / 24);
+
+    secondsDiff %= 60;
+    minutesDiff %= 60;
+    hoursDiff %= 24;
 
     // 문구 셋업
     const cdDays = document.getElementById("cddays");
