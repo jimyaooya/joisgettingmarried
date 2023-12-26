@@ -62,7 +62,7 @@ const twinkle = (numObjects, canvas) => {
             context.closePath();
 
             // Apply blur filter
-            context.filter = 'blur(5px)';
+            //context.filter = 'blur(5px)';
 
             context.fill();
         }
