@@ -123,8 +123,6 @@ header hr{
 }
 
 .greetings {
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: 500;
     transform: translateY(1rem);
     transition: opacity 2s, transform 2s;
 }
@@ -191,7 +189,7 @@ section {
 
 .section_head{
     font-family: 'Noto Sans KR', sans-serif;
-    font-weight: 200;
+    font-weight: 500;
     letter-spacing: 0.21rem;
     color:#933;
 }
