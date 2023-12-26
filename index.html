@@ -9,6 +9,8 @@
     <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=vu1xmgid7i"></script>
     <script src="./count.js"></script>
     <script src="./particle.js"></script>
+    <script src="./init.js"></script>
+    <script src="./actions.js"></script>
     <style>
         /* Add this CSS code to your existing <style> tag */
         section {
@@ -39,131 +41,12 @@
             './imgs/wp000k.jpg',
             './imgs/wp000l.jpg'
         ];
-        // Add this JavaScript code to your existing <script> tag or in a separate script file
-        document.addEventListener("DOMContentLoaded", () => {
-            var sections = document.querySelectorAll("section");
-            var windowHeight = window.innerHeight;
-    
-            function checkSectionVisibility() {
-                for (var i = 0; i < sections.length; i++) {
-                    var section = sections[i];
-                    var sectionTop = section.getBoundingClientRect().top;
-    
-                    if (sectionTop - windowHeight <= 0) {
-                        section.classList.add("visible");
-                    }
-                }
-            }
-            window.addEventListener("scroll", checkSectionVisibility);
-            checkSectionVisibility();
-        });
-        document.addEventListener("DOMContentLoaded", ()=>{
-            const canvas = document.getElementById('canvas');
-            setCanvasSize();
-            function setCanvasSize() {
-                canvas.width = document.documentElement.clientWidth;
-                canvas.height = document.documentElement.clientHeight - 100;
-                console.log(canvas.width, canvas.height);
-            }
-            window.onresize = function(e) {
-                setCanvasSize();
-            }
-            const cnt = document.documentElement.clientWidth/25;
-            twinkle(cnt, canvas);
-        });
-
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const targetCoord = [37.5140508,127.0372835];
-            const windowWidth = document.documentElement.clientWidth;
-            const targetZoom = windowWidth < 768 ? 15 : 16;
-
-            var mapOptions = {
-                center: new naver.maps.LatLng(...targetCoord),
-                zoom: targetZoom
-            };
-            var map = new naver.maps.Map('map', mapOptions);
-            var marker = new naver.maps.Marker({
-                position: new naver.maps.LatLng(...targetCoord),
-                map: map
-            });
-            var polygon = new naver.maps.Polygon({
-                map: map,
-                paths: [
-                    [127.0371685,37.5141248],
-                    [127.0373655,37.5141848],
-                    [127.037490,37.5138848],
-                    [127.0372985,37.5138248],
-                ],
-                fillColor: '#13F',
-                fillOpacity: 0.4,
-                strokeWeight: 2,
-                strokeColor: '#13F'
-            });
-
-        });
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const scrollAnimationElement = document.querySelector(".scroll-animation");
-            ARRAY_OF_IMG_LINKS.forEach((link) => {
-                const divElement = document.createElement("div");
-                divElement.classList.add("gallery_content");
-                divElement.style.backgroundImage = `url(${link})`;
-                
-                // const divElementBlured = document.createElement("div");
-                // divElementBlured.classList.add("gallery_content");
-                // divElementBlured.classList.add("gallery_content_blured");
-                // divElementBlured.style.backgroundImage = `url(${link})`;
-                // divElement.appendChild(divElementBlured);
-                scrollAnimationElement.appendChild(divElement);
-
-            });
-        });
-
+        document.addEventListener("DOMContentLoaded", initSectionAnim);
+        document.addEventListener("DOMContentLoaded", initCanvas);
+        document.addEventListener("DOMContentLoaded", initMap);
+        document.addEventListener("DOMContentLoaded", makeImgsElements);
         document.addEventListener("DOMContentLoaded", updateCountdown);
-        const getOpacity = (progress) =>{
-            const THREARSHOLD = 0.15;
-            return progress > THREARSHOLD ? (progress - THREARSHOLD) * 3 : 0;
-        }
-        window.addEventListener('scroll', () => {
-            const IMG_WIDTH = document.documentElement.clientWidth > 1024 ? 1024 : document.documentElement.clientWidth;
-            const IMG_COUNTS = ARRAY_OF_IMG_LINKS.length;
-            const IMG_TOTAL_LENGTH = IMG_WIDTH * IMG_COUNTS;
-            const bufferDivElement = document.querySelector('.bufferDiv');
-            bufferDivElement.style = `width : ${document.documentElement.clientHeight/2}px`;
-            
-            const MIN_IMG_HEIGHT = window.innerHeight - 100;
-            const IMG_HEIGHT = (800 > MIN_IMG_HEIGHT ? MIN_IMG_HEIGHT : 800)
-            var scrollPosition = window.scrollY;
-            var element = document.querySelector('.scroll-animation');
-
-            const aniStart = document.querySelector('.ani_start').getBoundingClientRect().top;
-            const aniEnd = document.querySelector('.ani_end').getBoundingClientRect().top;
-
-            // Calculate the animation progress based on scroll position
-            //var animationProgress = scrollPosition / (document.documentElement.scrollHeight - window.innerHeight);
-            let topPos = aniStart > 0 ? aniStart : 0;
-            let marginTop = document.documentElement.clientHeight/2 - IMG_HEIGHT/2;
-            let animationProgress = (document.documentElement.clientHeight - (aniStart + marginTop)) / (aniEnd - (IMG_HEIGHT/1.5) - aniStart);
-            animationProgress = animationProgress > 1 ? 1 : animationProgress;
-            // Adjust the animation keyframes based on the animation progress
-            var keyframeOpacity = 1 - animationProgress * 0.5;
-            var keyframeRight = -IMG_TOTAL_LENGTH + animationProgress * IMG_TOTAL_LENGTH;
-
-            // Apply the adjusted keyframe values to the animation
-            element.style = `
-                position: fixed;
-                width: ${IMG_TOTAL_LENGTH}px;
-                height: ${IMG_HEIGHT}px;
-                margin-top: ${marginTop}px;
-                right: ${keyframeRight}px;
-                top: ${topPos}px;
-            `;
-            document.querySelector(".ani_start").style = `height: ${IMG_TOTAL_LENGTH + marginTop}px`;
-            // document.body.style = `
-            //     background: linear-gradient(to bottom right, rgba(20,20,10,${getOpacity(animationProgress)}), rgba(0,0,10,${getOpacity(animationProgress)}));
-            // `;
-        });
+        window.addEventListener('scroll', onScroll);
     </script>
 </head>
 <body>

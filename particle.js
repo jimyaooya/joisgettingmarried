@@ -26,8 +26,7 @@ const twinkle = (numObjects, canvas) => {
         const canvasWidth = canvas.clientWidth;
         const canvasHeight = (canvas.clientHeight - 100);
 
-        for (let i = 0; i < objects.length; i++) {
-            const object = objects[i];
+        objects.forEach((object) => {
             const direction = object.x < (canvasWidth * 0.5) ? -1 : 1;
             object.x += direction * 0.5 * object.factor;
 
@@ -42,7 +41,7 @@ const twinkle = (numObjects, canvas) => {
             }
 
             object.opacity += object.status ? object.speed : -object.speed;
-        }
+        });
     }
 
     const drawObjects = () => {
