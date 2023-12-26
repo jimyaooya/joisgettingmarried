@@ -275,7 +275,7 @@ footer p {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     text-align: center;
-    font-weight: bold;
+    font-weight: 500;
     border-bottom: 1px solid #ddd;
 }
 
@@ -285,6 +285,7 @@ footer p {
 
 .calendar-body {
     display: grid;
+    font-weight: 300;
     grid-template-columns: repeat(7, 1fr);
     grid-gap: 0px;
 }
@@ -292,6 +293,10 @@ footer p {
 .highlight{
     color:#f53;
 }
+.subhighlight{
+    color:rgb(29, 36, 51);
+}
+
 .ddayhighlight{
     color: #f53;
     font-weight: bold;
@@ -303,7 +308,21 @@ footer p {
     width: 2rem;
     height: 2rem;
     z-index: 0;
-    margin-top: -0.35rem;
-    margin-left: -0.5rem;
-    border: 2px dotted #f53;
+    margin-top: -0.32rem;
+    margin-left: -0.45rem;
+    border: 2px dotted #35f;
+}
+
+.ddayhighlight::after{
+    content: '정욱·지현\A결혼식';
+    color: #35f;
+    white-space: pre;
+    font-size: 0.75rem;
+    font-family: "KyoboHandwriting2020A";
+    font-weight: 500;
+    position: absolute;
+    height: 2rem;
+    z-index: 0;
+    margin-top: 2rem;
+    margin-left: -2.6rem;
 }
