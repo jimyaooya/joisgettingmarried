@@ -1,9 +1,14 @@
-.snow {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: #fff;
-    border-radius: 100%;
+section {
+    opacity: 0;
+    transform: translateY(5rem);
+    transition: opacity 0.5s, transform 0.5s;
+}
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.scroll-animation{
+    display: flex;
 }
 
 .waves {

@@ -1,9 +1,17 @@
 
+/**
+ * progress 에 따른 opacity 반환
+ * @param {number} progress - animation progress 정도
+ * @returns 
+ */
 const getOpacity = (progress) =>{
     const THREARSHOLD = 0.15;
     return progress > THREARSHOLD ? (progress - THREARSHOLD) * 3 : 0;
 }
 
+/**
+ * scroll에 따른 gallery animation 처리
+ */
 const onScroll = () => {
     const IMG_WIDTH = document.documentElement.clientWidth > 1024 ? 1024 : document.documentElement.clientWidth;
     const IMG_COUNTS = ARRAY_OF_IMG_LINKS.length;

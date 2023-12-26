@@ -8,7 +8,7 @@ const updateCountdown = () => {
     const hoursDiff = Math.floor(minutesDiff / 60) % 24;
     const daysDiff = Math.floor(hoursDiff / 24);
 
-    // Display the remaining time on the webpage
+    // 문구 셋업
     const cdDays = document.getElementById("cddays");
     cdDays.textContent = daysDiff;
     const cdHours = document.getElementById("cdhours");
@@ -17,10 +17,8 @@ const updateCountdown = () => {
     cdMin.textContent = minutesDiff;
     const cdSec = document.getElementById("cdseconds");
     cdSec.textContent = secondsDiff;
-
     const ddays = document.getElementById("ddays")
     ddays.textContent = `${daysDiff}일 남았습니다`
 
-    // Update the countdown every second
     setTimeout(updateCountdown, 1000);
 }

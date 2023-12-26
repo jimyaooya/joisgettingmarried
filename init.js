@@ -1,4 +1,7 @@
 
+/**
+ * scroll에 따른 section in-transition anim 처리
+ */
 const initSectionAnim = () => {
     const sections = document.querySelectorAll("section");
     const windowHeight = window.innerHeight;
@@ -16,6 +19,9 @@ const initSectionAnim = () => {
     checkSectionVisibility();
 }
 
+/**
+ * canvas initialization
+ */
 const initCanvas = ()=>{
     const canvas = document.getElementById('canvas');
     const setCanvasSize = () => {
@@ -32,6 +38,9 @@ const initCanvas = ()=>{
     twinkle(cnt, canvas);
 }
 
+/**
+ * naver map initialization
+ */
 const initMap = () =>{
     const targetCoord = [37.5140508,127.0372835];
     const windowWidth = document.documentElement.clientWidth;
@@ -61,7 +70,9 @@ const initMap = () =>{
     });
 }
 
-
+/**
+ * gallery initialization
+ */
 const makeImgsElements = () => {
     const scrollAnimationElement = document.querySelector(".scroll-animation");
     ARRAY_OF_IMG_LINKS.forEach((link) => {
