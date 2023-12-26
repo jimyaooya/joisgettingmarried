@@ -72,6 +72,6 @@ canvas {
     top:0;
     z-index: 3;
     pointer-events: none;
-    filter : blur(5px);
+    filter : blur(6px);
 }
 
