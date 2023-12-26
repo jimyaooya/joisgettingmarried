@@ -27,7 +27,6 @@ const initCanvas = ()=>{
     const setCanvasSize = () => {
         canvas.width = document.documentElement.clientWidth;
         canvas.height = document.documentElement.clientHeight - 100;
-        console.log(canvas.width, canvas.height);
     }
     
     setCanvasSize();

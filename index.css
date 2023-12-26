@@ -64,8 +64,8 @@ header{
 .titleBg {
     background-image: url("imgs/wp00.jpg");
     background-position: calc(50% + 1.5rem) center; /*calc(50% + 1.5rem) */
-    background-repeat: no-repeat;
     background-size: cover;
+    background-repeat: no-repeat;
     font-family: "KyoboHandwriting2020A";
     /* font-family: "교보 손글씨 2021 성지영"; */
     color: #100;
@@ -74,6 +74,13 @@ header{
     font-weight: lighter;
     min-height: 768px;
 }
+@media screen and (min-aspect-ratio: 100/100) {
+    /* Add your styles here for when the aspect ratio is wider */
+    .titleBg {
+        background-size: calc(100% + 3rem);
+    }
+}
+
 
 header .middle::after, header .middle::before{
     content: "|";
@@ -116,6 +123,8 @@ header hr{
 }
 
 .greetings {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
     transform: translateY(1rem);
     transition: opacity 2s, transform 2s;
 }
@@ -182,7 +191,7 @@ section {
 
 .section_head{
     font-family: 'Noto Sans KR', sans-serif;
-    font-weight:200;
+    font-weight: 200;
     letter-spacing: 0.21rem;
     color:#933;
 }
