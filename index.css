@@ -110,7 +110,8 @@ header hr{
 .timedetails{
     margin-top:0.1rem;
     font-size: 0.78rem;
-    font-family: 'Noto Sans KR Medium';
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight:500;
     color:#a53;
 }
 
@@ -145,7 +146,8 @@ header hr{
 #countdown{
     margin-top: 0.25rem;
     font-weight: lighter;
-    font-family: "Noto Sans KR Thin";
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight:100;
     display: flex;
     justify-content: center;
     color:white;
@@ -179,7 +181,8 @@ section {
 }
 
 .section_head{
-    font-family: 'Noto Sans KR ExtraLight';
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight:200;
     letter-spacing: 0.21rem;
     color:#933;
 }
