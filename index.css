@@ -74,7 +74,7 @@ header{
     font-weight: lighter;
     min-height: 768px;
 }
-@media screen and (min-aspect-ratio: 100/100) {
+@media screen and (min-aspect-ratio: 100/60) {
     /* Add your styles here for when the aspect ratio is wider */
     .titleBg {
         background-size: calc(100% + 3rem);
