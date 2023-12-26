@@ -1,0 +1,286 @@
+body {
+    font-family: "Arial", "나눔고딕", sans-serif;
+    background-color: rgb(255,250,245);
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background-color: rgb(255,250,245);
+}
+
+#map{
+    border: 1px solid #a99;
+    width: 100%;
+    max-width: 1280px;
+    display: inline-block;
+}
+
+.titleBox{
+    width: 25%;
+    display: inline-block;
+    /* background-color: #fff; */
+    border-radius: 0.1rem;
+    min-width: 9rem;
+    min-height: 9rem;
+    /* border: 1px solid #ffd;
+    box-shadow: 0 0 0.5rem rgba(0,0,0,0.2); */
+    padding: 2rem;
+    margin: 1rem 0;
+    overflow: hidden; 
+    color:#013;
+    font-weight: bold;
+
+}
+
+.titleGradient{
+    position:relative;
+    width: 100%;
+    height: 5rem;
+    background: linear-gradient(to bottom, rgb(255,250,245), rgba(255, 0, 0, 0)  10%);
+}
+
+.titleFadeout{
+    position: absolute;
+    width: 100%;
+    height: 6rem;
+    bottom: -1px;
+    background: linear-gradient(to top, rgb(255,250,245), rgba(0, 0, 0,0) 15%);
+}
+
+.titleBg {
+    background-image: url("imgs/wp00.jpg");
+    background-position: calc(50% + 1.5rem) center; /*calc(50% + 1.5rem) */
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "교보 손글씨 2020 박도연";
+    /* font-family: "교보 손글씨 2021 성지영"; */
+    color: #100;
+    text-shadow: 0 0.05rem 0.3rem rgba(200,125,150,0.3);
+    text-align: center;
+    font-weight: lighter;
+    min-height: 768px;
+}
+
+header .middle::after, header .middle::before{
+    content: "|";
+    font-size: 0.75rem;
+    vertical-align:0.3rem;
+    margin: 0 0.5rem;
+    color:#013;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: lighter;
+}
+header h2 {
+    margin: 0;
+    font-size: 1rem;
+    margin-left:0.75rem;
+    line-height: 2rem;
+    letter-spacing: 0.93rem;
+    font-family: "교보 손글씨 2020 박도연";
+}
+h2 {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 2rem;
+    color: #555;
+    font-weight: lighter;
+    font-family: "교보 손글씨 2020 박도연";
+}
+header hr{
+    width:8rem;
+}
+.timedetails{
+    margin-top:0.1rem;
+    font-size: 0.78rem;
+    font-family: 'Noto Sans KR Medium';
+    color:#a53;
+}
+
+.greetings {
+    transform: translateY(1rem);
+    transition: opacity 2s, transform 2s;
+}
+.anim0{
+    transition-delay: 0.25s;
+}
+.anim1{
+    transition-delay: 1.5s;
+}
+.anim2{
+    transition-delay: 3s;
+}
+.anim3{
+    transition-delay: 3.5s;
+}
+
+.nametitle{
+    font-family: "교보 손글씨 2020 박도연";
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+}
+.ringemoji{
+    content: "💍";
+    font-size: 0.8rem;
+    opacity: 0.5;
+}
+
+#countdown{
+    margin-top: 0.25rem;
+    font-weight: lighter;
+    font-family: "Noto Sans KR Thin";
+    display: flex;
+    justify-content: center;
+    color:white;
+    text-shadow: 0 0 0.5rem rgba(0,0,0,1);
+}
+.subcd{
+    font-size: 0.5rem;
+    width: calc(5%);
+    min-width: 4rem;
+}
+.subcd.cnt{
+    font-size: 1rem;
+}
+#ddays{
+    opacity: 0;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    font-family: "교보 손글씨 2020 박도연";
+    /* font-family: "교보 손글씨 2021 성지영"; */
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.section_head{
+    font-family: 'Noto Sans KR ExtraLight';
+    letter-spacing: 0.21rem;
+    color:#933;
+}
+
+
+p {
+    margin: 10px 0;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.famcon{
+    font-family: "교보 손글씨 2020 박도연";
+    width: 100%;
+    color: #013;
+    font-size: 1rem; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:1rem 0rem;
+}
+
+.subfam{
+    text-align: center;
+    width: calc(15%);
+    float:none;
+    line-height: 2rem;
+    max-width: 3.2rem;
+}
+
+.mid{
+    width: 1px;
+    margin-left: -1px;
+    height: 3rem;
+    border: 1px solid #ddd;
+}
+
+.splitter{
+    margin: 5rem 0rem;
+    width:10rem;
+    display: inline-block;
+    border-bottom:1px double #caa;
+}
+
+.gallery_content{
+    width: calc(100vw - 2rem);
+    max-width: 1024px;
+    margin: 1rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px solid rgba(250,225,250,1);
+    box-shadow: 0 0.5rem 1rem rgba(150,150,150,0.25);
+}
+.gallery_content_blured{
+    filter: blur(4rem);
+    opacity: 0.7;
+    position: absolute;
+    z-index: -1;
+    margin-left: -2rem;
+}
+
+.calendar {
+    margin: 1rem 0rem;
+    display: inline-block;
+    width: 100%;
+    max-width: 17rem;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.calendar-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+}
+
+.calendar-day {
+    padding: 0.5rem 0.15rem;
+}
+
+.calendar-body {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 0px;
+}
+
+.highlight{
+    color:#f53;
+}
+.ddayhighlight{
+    color: #f53;
+    font-weight: bold;
+}
+.ddayhighlight::before{
+    content: " ";
+    position: absolute;
+    border-radius: 1rem;
+    width: 2rem;
+    height: 2rem;
+    z-index: 0;
+    margin-top: -0.35rem;
+    margin-left: -0.5rem;
+    border: 2px dotted #f53;
+}
