@@ -33,7 +33,7 @@ const initCanvas = ()=>{
     window.onresize = function(e) {
         setCanvasSize();
     }
-    const cnt = document.documentElement.clientWidth/25;
+    const cnt = document.documentElement.clientWidth/50;
     twinkle(cnt, canvas);
 }
 
