@@ -12,11 +12,13 @@
 }
 
 #bgm-toggle{
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    min-height: 1.5rem !important;
+    min-width: 1.5rem !important;
     border-radius: 50%;
     background-color: rgba(255,255,255,0.4);
-    border: 1px solid rgba(125,125,125,0.5);
+    border: 1px solid rgba(125,125,125,0.3);
     box-shadow: 0 0 0.5rem rgba(255,125,100,0.5);
     z-index: 100;
     display: flex;
