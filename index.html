@@ -52,13 +52,9 @@
                 .catch((e)=>{
                 });
             } else {
-                audio.pause()
-                .then(()=>{   
-                    button.active = false;
-                    button.classList.remove("on");
-                })
-                .catch((e)=>{
-                });
+                audio.pause();
+                button.active = false;
+                button.classList.remove("on");
             }
         }
         
