@@ -39,6 +39,47 @@
             './imgs/wp000k.jpg',
             './imgs/wp000l.jpg'
         ];
+        const toggleBGM = ()=>{
+            var audio = document.getElementById("bgm-player");
+            var button = document.getElementById("bgm-toggle");
+
+            if (audio.paused) {
+                audio.play()
+                .then(()=>{   
+                    button.active = true;
+                    button.classList.add("on");
+                })
+                .catch((e)=>{
+                });
+            } else {
+                audio.pause()
+                .then(()=>{   
+                    button.active = false;
+                    button.classList.remove("on");
+                })
+                .catch((e)=>{
+                });
+            }
+        }
+        
+        const playMusic = () => {
+            const audio = document.getElementById("bgm-player");
+            return audio.paused && toggleBGM();
+        };
+
+        const initMusic = () => {
+            setTimeout(()=>{
+                const audio = document.getElementById("bgm-player");
+                if(!audio.paused){
+                    console.log("already playing");
+                }else if(playMusic()){
+                    console.log("music played");
+                }else{
+                    initMusic();
+                }
+            }, 2500);
+        }
+        document.addEventListener("DOMContentLoaded", initMusic);
         document.addEventListener("DOMContentLoaded", initSectionAnim);
         document.addEventListener("DOMContentLoaded", initCanvas);
         document.addEventListener("DOMContentLoaded", initMap);
@@ -52,6 +93,7 @@
         <canvas id="canvas"></canvas>
         <div class="titleBg">
             <div class="titleGradient">
+            </script>
                 <section style="padding-top:4.3rem;">
                     <div>
                         <h1 class="nametitle">이정욱 · 정지현</h1>
@@ -104,6 +146,16 @@
                         <use xlink:href="#gentle-wave" x="48" y="7" fill="rgb(255,250,245)" />
                     </g>
                 </svg>
+            </div>
+            <div id="bgm-component" style="position: fixed;right: 1rem;top:1rem">
+                <div class="audio-player">
+                    <audio id="bgm-player" loop="loop" autoplay="autoplay">
+                        <source src="./ppp.mp3">
+                    </audio>
+                    <button id="bgm-toggle" onclick="toggleBGM()">
+                        ♪
+                    </button>
+                </div>
             </div>
         </div>
     </header>
