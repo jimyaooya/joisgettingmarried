@@ -182,7 +182,7 @@ const initialPaths = (map) => {
         {
             line : parkingLotEntrance,
             filter: 0x00010,
-            description: ['제휴 주차장인 SK허브블루에 주차해주세요\n주차장 출입구는 건물 뒷편에 있습니다\n 주차는 2시간 무료이니 이용에 참고해주세요 :)'],
+            description: ['제휴 주차장인 SK허브블루에 주차해주세요\n주차장 출입구는 건물 뒷편에 있습니다\n주차는 2시간 무료이니 이용에 참고해주세요 :)'],
             shortdesc: ['SK허브블루 주차장 주차, 2시간 무료'],
             spanningTime : 7500
         },
@@ -197,42 +197,42 @@ const initialPaths = (map) => {
         {
             line : byBus신사1출,
             filter: 0x00100,
-            description: ['신사역 1번 출구로 나와\n 롯데시네마 앞 정류장에서 강남 08번 버스를 탑승해주세요'],
+            description: ['신사역 1번 출구로 나와\n롯데시네마 앞 정류장에서\n강남 08번 버스를 탑승해주세요'],
             shortdesc: ['신사역 1번 출구'],
             spanningTime : 6000
         },
         {
             line : bus_강남08,
             filter: 0x00100,
-            description: ['11분 정도를 버스타고 이동해주세요'],
+            description: ['11분 정도를 버스타고 이동해주세요.'],
             shortdesc: ['강남08번 마을버스 탑승 (11분이동 "세관앞" 정류장 하차)'],
             spanningTime : 3500
         },
         {
             line : byWalk3_세관앞,
             filter: 0x00100,
-            description: ['세관앞 정류장에서 내리셔서\n 4분(250M)가량 도보로 이동해주세요'],
+            description: ['세관앞 정류장에서 내리셔서\n4분(250M)가량 도보로 이동해주세요'],
             shortdesc: ['도보 4분(250M) 이동'],
             spanningTime : 3500
         },
         {
             line : byWalk2_구청역,
             filter: 0x00000,
-            description: ['강남구청역에서 내려 2번출구로 나오셔서 600m 도보로 이동해주세요'],
+            description: ['강남구청역 2번출구로 나오셔서\n600m 도보로 이동해주세요'],
             shortdesc: ['강남구청역 2번출구, 도보 9분(600M) 이동'],
             spanningTime : 5500
         },
         {
             line : byShuttle_구청역앞,
             filter: 0x01000,
-            description: ['강남구청역에서 내려 2번출구로 나오셔서\n 출구앞 버스정류장에서 기다리고계시면\n셔틀이 옵니다'],
+            description: ['강남구청역 2번출구로 나오셔서\n출구앞 버스정류장에서 기다리고계시면\n셔틀이 옵니다'],
             shortdesc: ['강남구청역 2번출구 앞 버스정류장에서 셔틀 탑승'],
             spanningTime : 8000
         },
         {
             line : byShuttle_skhub,
             filter: 0x00010,
-            description: ['주차를 하신뒤 1층 건물 출입구로나오셔서\n 출구앞 버스정류장에서 기다리고계시면\n셔틀이 옵니다'],
+            description: ['주차를 하신뒤 1층 건물 출입구로나오셔서\n출구앞 버스정류장에서 기다리고계시면\n셔틀이 옵니다'],
             shortdesc: ['건물 출입앞 버스정류장에서 셔틀 탑승'],
             spanningTime : 8000
         },
@@ -286,11 +286,13 @@ const animateZoomPath = () => {
         void descriptionDiv.offsetWidth;
         descriptionDiv.classList.add('desciption_animation');
         if(currentIdx === currentAnimTargetPaths.length){
-            descriptionDiv.textContent = `${(currentIdx+1)}. 도착!`;
+            descriptionDiv.textContent = `- ${(currentIdx+1)} -
+            도착!`;
             currentIdx = 0;
             panToGlobalMarker();
         }else{
-            descriptionDiv.textContent = `${(currentIdx+1)}. ${currentAnimTargetPaths[currentIdx].description}`;
+            descriptionDiv.textContent = `- ${(currentIdx+1)} -
+            ${currentAnimTargetPaths[currentIdx].description}`;
             panToPathBound(currentAnimTargetPaths[currentIdx++]);
         }
         animateZoomPath(currentAnimTargetPaths);
