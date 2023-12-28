@@ -204,7 +204,7 @@ const initialPaths = (map) => {
         {
             line : bus_강남08,
             filter: 0x00100,
-            description: ['11분 정도를 버스를 탑승해주세요'],
+            description: ['11분 정도를 버스타고 이동해주세요'],
             shortdesc: ['강남08번 마을버스 탑승 (11분이동 "세관앞" 정류장 하차)'],
             spanningTime : 3500
         },

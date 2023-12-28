@@ -395,6 +395,10 @@ footer p {
     height: 6rem;
     white-space: pre-line;    
     line-height: 1.5rem;
+    
+    width: 100%;
+    max-width: 1280px;
+    display: inline-block;
 }
 
 .desciption_animation{
