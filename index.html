@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="anim.css">
     <head>
     <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=vu1xmgid7i"></script>
+    <script src="./paths.js"></script>
     <script src="./count.js"></script>
     <script src="./particle.js"></script>
     <script src="./init.js"></script>
@@ -82,6 +83,9 @@
         document.addEventListener("DOMContentLoaded", makeImgsElements);
         document.addEventListener("DOMContentLoaded", updateCountdown);
         window.addEventListener('scroll', onScroll);
+        const myCallback = (param) =>{
+            console.log("hi",param);
+        }
     </script>
 </head>
 <body>
@@ -161,6 +165,8 @@
             <h2>두 사람이 문구 초대문구</h2>
             <h2>빛나는 이날에</h2>
             <h2>같이 축복해주세요</h2>
+        </section>
+        <section class="section_head">
             <div class="famcon">
                 <div class="subfam">
                     <span>이상의</span><br/>
@@ -260,6 +266,15 @@
         <section style="margin:3rem 0rem">
             <h1 class="greetings section_head">오시는길</h1>
             <div id="map" style="width:100%;height:400px;"></div>
+            <br/>
+            <div id="map_navi_description">
+                &nbsp;
+            </div>
+            
+            <button onclick="setVisilbities(0x01000, paths)">대중교통 (강남구청역)</button><br/>
+            <button onclick="setVisilbities(0x10000, paths)">대중교통 (학동역)</button><br/>
+            <button onclick="setVisilbities(0x00100, paths)">대중교통 (신사역)</button><br/>
+            <button onclick="setVisilbities(0x00010, paths)">차량이용</button><br/>
             <br/>
             <div class="splitter">
             </div>

@@ -1,4 +1,3 @@
-
 /**
  * scroll에 따른 section in-transition anim 처리
  */
@@ -37,11 +36,15 @@ const initCanvas = ()=>{
     twinkle(cnt, canvas);
 }
 
+let map = null;
+const targetCoord = [37.5140508,127.0372835];
+let globalMarker = undefined;
+const paths = [];
 /**
  * naver map initialization
+ * @param {string} option
  */
 const initMap = () =>{
-    const targetCoord = [37.5140508,127.0372835];
     const windowWidth = document.documentElement.clientWidth;
     const targetZoom = windowWidth < 768 ? 15 : 16;
 
@@ -49,24 +52,30 @@ const initMap = () =>{
         center: new naver.maps.LatLng(...targetCoord),
         zoom: targetZoom
     };
-    const map = new naver.maps.Map('map', mapOptions);
-    const marker = new naver.maps.Marker({
+    map = new naver.maps.Map('map', mapOptions);
+    map.addListener('mousedown', clearAnimCallback);
+    map.addListener('touchstart', clearAnimCallback);
+    map.addListener('click', clearAnimCallback);
+    
+    globalMarker = new naver.maps.Marker({
         position: new naver.maps.LatLng(...targetCoord),
         map: map
     });
+
     const polygon = new naver.maps.Polygon({
         map: map,
         paths: [
             [127.0371685,37.5141248],
             [127.0373655,37.5141848],
-            [127.037490,37.5138848],
-            [127.0372985,37.5138248],
+            [127.03744932336295, 37.51395428989442],
+            [127.03725680497913, 37.51389903509976],
         ],
         fillColor: '#13F',
         fillOpacity: 0.4,
         strokeWeight: 2,
         strokeColor: '#13F'
     });
+    paths.push(...initialPaths(map));
 }
 
 /**
