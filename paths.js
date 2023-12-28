@@ -182,14 +182,14 @@ const initialPaths = (map) => {
         {
             line : parkingLotEntrance,
             filter: 0x00010,
-            description: ['제휴 주차장인 SK허브블루에 주차해주세요\n주차장 출입구는 건물 뒷편에 있습니다\n주차는 2시간 무료이니 이용에 참고해주세요 :)'],
+            description: ['식장제휴 주차장인 "SK허브블루"에 주차해주세요\n주차장 출입구는 건물 뒷편에 있습니다\n주차는 2시간 무료이니 이용에 참고해주세요 :)'],
             shortdesc: ['SK허브블루 주차장 주차, 2시간 무료'],
             spanningTime : 7500
         },
         {
             line : byWalk1_학동역,
             filter: 0x10000,
-            description: ['학동역 1번 출구로 나오셔서 10분(650M)가량 도보로 이동해주세요'],
+            description: ['학동역 "1번 출구"로 나오셔서\n10분(650M)가량 도보로 이동해주세요'],
             shortdesc: ['학동역 1번출구, 도보 10분(650M) 이동'],
 
             spanningTime : 2500
@@ -197,21 +197,21 @@ const initialPaths = (map) => {
         {
             line : byBus신사1출,
             filter: 0x00100,
-            description: ['신사역 1번 출구로 나와\n롯데시네마 앞 정류장에서\n강남 08번 버스를 탑승해주세요'],
+            description: ['신사역 "1번 출구"로 나와\n롯데시네마 앞 정류장에서\n강남 08번 버스를 탑승해주세요'],
             shortdesc: ['신사역 1번 출구'],
             spanningTime : 6000
         },
         {
             line : bus_강남08,
             filter: 0x00100,
-            description: ['11분 정도를 버스타고 이동해주세요.'],
-            shortdesc: ['강남08번 마을버스 탑승 (11분이동 "세관앞" 정류장 하차)'],
+            description: ['4개정류장(11분)을 이동해주세요.'],
+            shortdesc: ['강남"08번 마을버스" 탑승\n(4개정류장(11분) 이동 "세관앞" 정류장 하차)'],
             spanningTime : 3500
         },
         {
             line : byWalk3_세관앞,
             filter: 0x00100,
-            description: ['세관앞 정류장에서 내리셔서\n4분(250M)가량 도보로 이동해주세요'],
+            description: ['"세관앞 정류장"에서 내리셔서\n4분(250M)가량 도보로 이동해주세요'],
             shortdesc: ['도보 4분(250M) 이동'],
             spanningTime : 3500
         },
@@ -244,6 +244,8 @@ const initialPaths = (map) => {
             spanningTime : 5000
         },
     ];
+
+    mapNaviProgressbarAnimate();
     return paths;
 }
 const setSpanningTimeFactor = (factor) => {
@@ -254,6 +256,9 @@ let currentPaths = undefined;
 let currentIdx = 0;
 let spanningTime = undefined;
 let animCallback = undefined;
+let animTargetSpanningTime = 0;
+let requestAnimationFrameCallback =undefined;
+
 
 const clearAnimCallback = () => {
     if(animCallback){
@@ -278,7 +283,9 @@ const panToGlobalMarker = () => {
 }
 
 const animateZoomPath = () => {
-    const spanningTime = ((currentIdx === currentAnimTargetPaths.length) ? 6000 : (currentIdx === 0 ? 3500 : currentAnimTargetPaths[currentIdx-1].spanningTime)) * spanningTimefacor;
+    spanningTime = ((currentIdx === currentAnimTargetPaths.length) ? 6000 : (currentIdx === 0 ? 3500 : currentAnimTargetPaths[currentIdx-1].spanningTime)) * spanningTimefacor;
+    animTargetSpanningTime = new Date().getTime() + spanningTime;
+    console.log(animTargetSpanningTime);
     animCallback = setTimeout(() => {
         const descriptionDiv = document.getElementById('map_navi_description');
         descriptionDiv.classList.remove('sub_desciption');
@@ -300,6 +307,13 @@ const animateZoomPath = () => {
 }
 
 const setVisilbities = (filter,paths) => {
+    const elements = document.querySelectorAll('[id*="way_"]');
+    elements.forEach((element)=>{
+        element.classList.remove('btnWay_selected');
+    });
+    const selectedElements = document.getElementById(`way_${filter}`);
+    selectedElements.classList.add('btnWay_selected');
+
     const bounds = {
         minPoint : {x:Number.MAX_VALUE, y:Number.MAX_VALUE},
         maxPoint : {x:Number.MIN_VALUE, y:Number.MIN_VALUE}
@@ -333,5 +347,11 @@ const setVisilbities = (filter,paths) => {
     currentAnimTargetPaths = targetPaths;
     clearAnimCallback();
     animateZoomPath();
-    
+}
+const mapNaviProgressbarAnimate = () => {
+    if(animCallback){
+        const element = document.getElementById('map_navi_progressbar');
+        element.style.width = `${((animTargetSpanningTime - new Date().getTime()) / spanningTime) * 100}%`;
+    }
+    requestAnimationFrame(mapNaviProgressbarAnimate);
 }

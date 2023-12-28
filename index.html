@@ -143,7 +143,7 @@
                         <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,250,245,0.7" />
                         <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,215,155,0.5)" />
                         <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,161,195,0.3)" />
-                        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgb(255,250,245)" />
+                        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgb(251,253,255)" />
                     </g>
                 </svg>
             </div>
@@ -267,15 +267,38 @@
             <h1 class="greetings section_head">오시는길</h1>
             <div id="map" style="width:100%;height:400px;"></div>
             <br/>
-            <div id="map_navi_description">
-                &nbsp;
+            <div class="ways">
+                <div id="map_navi_progressbar" class="map_navi_progressbar" style="width:0%;">
+                </div>
+                <div id="map_navi_description">
+                    <span>오시는 길을 선택해주세요<br/>↓</span>
+                </div>
             </div>
             <br/>
-            
-            <button onclick="setVisilbities(0x01000, paths)">대중교통 (강남구청역)</button><br/>
-            <button onclick="setVisilbities(0x10000, paths)">대중교통 (학동역)</button><br/>
-            <button onclick="setVisilbities(0x00100, paths)">대중교통 (신사역)</button><br/>
-            <button onclick="setVisilbities(0x00010, paths)">차량이용</button><br/>
+            <div class="ways">
+                <div class="btnContainer">
+                    <div id="way_4096" class="btnWay btnWay_left" onclick="setVisilbities(0x01000, paths)">
+                        <span>
+                            대중교통<br/>강남구청역
+                        </span>
+                    </div>
+                    <div id="way_65536" class="btnWay btnWay_middle" onclick="setVisilbities(0x10000, paths)">
+                        <span>
+                            대중교통<br/>학동역
+                        </span>
+                    </div>
+                    <div id="way_256" class="btnWay btnWay_middle" onclick="setVisilbities(0x00100, paths)">
+                        <span>
+                            대중교통<br/>신사역
+                        </span>
+                    </div>
+                    <div id="way_16" class="btnWay btnWay_right" onclick="setVisilbities(0x00010, paths)">
+                        <span>
+                            차량이용
+                        </span>
+                    </div>
+                </div>
+            </div>
             <br/>
             <div class="splitter">
             </div>
