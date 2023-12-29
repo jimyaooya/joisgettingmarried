@@ -1,4 +1,4 @@
-let spanningTimefacor = 1.0;
+let spanningTimefacor = 0.5;
 const initialPaths = (map) => {
     const byWalk1_학동역 = new naver.maps.Polyline({
         map: map,
@@ -406,17 +406,17 @@ const btnClickPrevPath = () => {
         return;
     }
 
+    if(currentIdx === 0){
+        currentIdx = currentAnimTargetPaths.length + 1;
+    }else{
+        currentIdx--;
+    }
+    
     if(animCallback){
         clearTimeout(animCallback);
         animCallback = undefined;
     }else{
-        if(currentIdx === 0){
-            currentIdx = currentAnimTargetPaths.length + 1;
-        }else{
-            currentIdx--;
-        }
+        displayDescriptionByIdx();
     }
 
-
-    displayDescriptionByIdx();
 }
