@@ -253,7 +253,7 @@ const setSpanningTimeFactor = (factor) => {
 }
 
 let currentAnimTargetPaths = undefined;
-let currentIdx = 1;
+let currentIdx = 0;
 let spanningTime = undefined;
 let animCallback = undefined;
 let animTargetSpanningTime = 0;
@@ -264,7 +264,6 @@ const clearAnimCallback = () => {
     if(animCallback){
         clearTimeout(animCallback);
         animCallback = undefined;
-        currentIdx = 0;
     }
 };
 const panToPathBound = (path) =>{
@@ -343,6 +342,8 @@ const setVisilbities = (filter, paths) => {
     setSummaryDescription(targetPaths);
     currentAnimTargetPaths = targetPaths;
     clearAnimCallback();
+    currentIdx = 0;
+    displayDescriptionByIdx();
     currentIdx = 1;
     animateZoomPath();
 };
@@ -391,9 +392,12 @@ const btnClickNextPath = () => {
     if(!currentAnimTargetPaths || currentAnimTargetPaths.length === 0){
         return;
     }
-
-    clearAnimCallback();
-    currentIdx = (currentIdx + 1) % (currentAnimTargetPaths.length + 2);
+    if(animCallback){
+        clearTimeout(animCallback);
+        animCallback = undefined;
+    }else{
+        currentIdx = (currentIdx + 1) % (currentAnimTargetPaths.length + 2);
+    }
     displayDescriptionByIdx();
 }
 
@@ -402,11 +406,17 @@ const btnClickPrevPath = () => {
         return;
     }
 
-    clearAnimCallback();
-    if(currentIdx === 0){
-        currentIdx = currentAnimTargetPaths.length + 1;
+    if(animCallback){
+        clearTimeout(animCallback);
+        animCallback = undefined;
     }else{
-        currentIdx--;
+        if(currentIdx === 0){
+            currentIdx = currentAnimTargetPaths.length + 1;
+        }else{
+            currentIdx--;
+        }
     }
+
+
     displayDescriptionByIdx();
 }
