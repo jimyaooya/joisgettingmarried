@@ -14,6 +14,7 @@ const callKakaomap = (lat, lng) => {
 }
 
 const callNavermap = (lat, lng, name) => {
+    console.log(lat, lng, name);
     const url = `nmap://route/walk?dlat=${lat}&dlng=${lng}&dname=${name}&appScheme=callSchemes://`;
     window.location.href = url;
 }
