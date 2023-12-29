@@ -387,18 +387,23 @@ footer p {
     }
 }
 
-#map_navi_description{
-    padding: 1rem;
+.desciption_container{
     border: 1px solid #fdd;
     background-color: #fff;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr 10fr 1fr);
+}
+
+#map_navi_description{
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 500;
     font-size: 0.9rem;
     margin-bottom: 1rem;
     white-space: pre-line;    
     line-height: 1.5rem;
+    padding: 1rem 0rem;
     
-    width: calc(100% - 2rem);
     max-width: 1280px;
     display: inline-block;
     color: #803;
@@ -422,11 +427,13 @@ footer p {
     width: 100%;
     max-width: 1280px;
     display: inline-block;
-
+    margin-bottom: 0.5rem;
 }
 
 .map_navi_progressbar{
-    border-bottom: 5px solid #c57;
+    z-index: 3;
+    border-bottom: 3px solid #c57;
+    box-shadow: 0 -1px 5px rgba(226, 50, 100, 0.6)
 }
 
 .btnContainer{
@@ -462,7 +469,7 @@ footer p {
     background-color: #fdd;
     color: #c57;
     z-index: 99 !important;
-    box-shadow: 0 0.1rem 0.3rem rgba(226, 177, 177, 0.3);
+    box-shadow: 0 0.1rem 0.3rem rgba(226, 177, 177, 0.1);
 }
 .btnWay_left{
     border-right: none;
@@ -479,3 +486,52 @@ footer p {
     border-top-right-radius: 0.1rem;
     border-bottom-right-radius: 0.1rem;
 }   
+
+.navi_arrow{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+.navi_arrow:hover{
+    background-color: #fee;
+}
+.navi_arrow:active{
+    background-color: #ffe;
+}
+.arrow_left::before {
+    content: " ";
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-top: 0.2rem solid #c57;
+    border-bottom: 0.2rem solid transparent;
+    border-left: 0.2rem solid #c57;
+    border-right: 0.2rem solid transparent;
+    transform: rotate(-45deg);   
+    margin-top: 0.5rem; 
+    margin-left: 1.2rem;
+}
+.arrow_right::after {
+    content: " ";
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-top: 0.2rem solid #c57;
+    border-bottom: 0.2rem solid transparent;
+    border-left: 0.2rem solid #c57;
+    border-right: 0.2rem solid transparent;
+    transform: rotate(135deg);     
+    margin-top: 0.5rem;
+    margin-right: 1.2rem;
+}
+#navi_before{
+    left: 0;
+}
+#navi_after{
+    right: 0;
+}

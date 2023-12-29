@@ -270,8 +270,16 @@
             <div class="ways">
                 <div id="map_navi_progressbar" class="map_navi_progressbar" style="width:0%;">
                 </div>
-                <div id="map_navi_description">
-                    <span>오시는 길을 선택해주세요<br/>↓</span>
+                <div class="desciption_container">
+                    <div id="navi_before" class="navi_arrow" onclick="btnClickPrevPath()">
+                        <span class="arrow_left"></span>
+                    </div>
+                    <div id="map_navi_description">
+                        <span>오시는 길을 선택해주세요<br/>↓</span>
+                    </div>
+                    <div id="navi_after" class="navi_arrow" onclick="btnClickNextPath()">
+                        <span class="arrow_right"></span>
+                    </div>
                 </div>
             </div>
             <br/>
@@ -279,17 +287,17 @@
                 <div class="btnContainer">
                     <div id="way_4096" class="btnWay btnWay_left" onclick="setVisilbities(0x01000, paths)">
                         <span>
-                            대중교통<br/>강남구청역
+                            강남구청역
                         </span>
                     </div>
                     <div id="way_65536" class="btnWay btnWay_middle" onclick="setVisilbities(0x10000, paths)">
                         <span>
-                            대중교통<br/>학동역
+                            학동역
                         </span>
                     </div>
                     <div id="way_256" class="btnWay btnWay_middle" onclick="setVisilbities(0x00100, paths)">
                         <span>
-                            대중교통<br/>신사역
+                            신사역
                         </span>
                     </div>
                     <div id="way_16" class="btnWay btnWay_right" onclick="setVisilbities(0x00010, paths)">

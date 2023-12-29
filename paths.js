@@ -252,7 +252,7 @@ const setSpanningTimeFactor = (factor) => {
     spanningTimefacor = factor;
 }
 
-let currentPaths = undefined;
+let currentAnimTargetPaths = undefined;
 let currentIdx = 0;
 let spanningTime = undefined;
 let animCallback = undefined;
@@ -282,59 +282,7 @@ const panToGlobalMarker = () => {
     map.panTo(globalMarker.getPosition());
 }
 
-const animateZoomPath = () => {
-    spanningTime = ((currentIdx === currentAnimTargetPaths.length) ? 6000 : (currentIdx === 0 ? 3500 : currentAnimTargetPaths[currentIdx-1].spanningTime)) * spanningTimefacor;
-    animTargetSpanningTime = new Date().getTime() + spanningTime;
-    console.log(animTargetSpanningTime);
-    animCallback = setTimeout(() => {
-        const descriptionDiv = document.getElementById('map_navi_description');
-        descriptionDiv.classList.remove('sub_desciption');
-        descriptionDiv.classList.remove('desciption_animation');
-        void descriptionDiv.offsetWidth;
-        descriptionDiv.classList.add('desciption_animation');
-        if(currentIdx === currentAnimTargetPaths.length){
-            descriptionDiv.textContent = `- ${(currentIdx+1)} -
-            도착!`;
-            currentIdx = 0;
-            panToGlobalMarker();
-        }else{
-            descriptionDiv.textContent = `- ${(currentIdx+1)} -
-            ${currentAnimTargetPaths[currentIdx].description}`;
-            panToPathBound(currentAnimTargetPaths[currentIdx++]);
-        }
-        animateZoomPath(currentAnimTargetPaths);
-    }, spanningTime);
-}
-
-const setVisilbities = (filter,paths) => {
-    const elements = document.querySelectorAll('[id*="way_"]');
-    elements.forEach((element)=>{
-        element.classList.remove('btnWay_selected');
-    });
-    const selectedElements = document.getElementById(`way_${filter}`);
-    selectedElements.classList.add('btnWay_selected');
-
-    const bounds = {
-        minPoint : {x:Number.MAX_VALUE, y:Number.MAX_VALUE},
-        maxPoint : {x:Number.MIN_VALUE, y:Number.MIN_VALUE}
-    }
-    const targetPaths = [];
-    paths.forEach((path)=>{
-        const isVisible = (path.filter & filter) > 0 ? true : false
-        if(isVisible){
-            bounds.minPoint.x = Math.min(bounds.minPoint.x, path.line.getBounds()._min.x);
-            bounds.minPoint.y = Math.min(bounds.minPoint.y, path.line.getBounds()._min.y);
-            bounds.maxPoint.x = Math.max(bounds.maxPoint.x, path.line.getBounds()._max.x);
-            bounds.maxPoint.y = Math.max(bounds.maxPoint.y, path.line.getBounds()._max.y);
-            targetPaths.push(path);
-        }
-        path.line.setVisible(isVisible);
-    });
-    map.panToBounds(
-        new naver.maps.PointBounds(bounds.minPoint, bounds.maxPoint),
-        {duration:500,easing: 'easeOutCubic'},
-        {top: 1, left: 1, right: 1, bottom: 1}
-    );
+const setSummaryDescription = (targetPaths) => {
     const descriptionDiv = document.getElementById('map_navi_description');
     descriptionDiv.classList.add('sub_desciption');
     let shortdescDiv = "";
@@ -343,15 +291,123 @@ const setVisilbities = (filter,paths) => {
     });
     shortdescDiv += `${(targetPaths.length + 1)}. 도착\n `;
     descriptionDiv.textContent = shortdescDiv;
+}
 
+
+const displayDescriptionByIdx = () => {
+    const descriptionDiv = document.getElementById('map_navi_description');
+    descriptionDiv.classList.remove('sub_desciption');
+    descriptionDiv.classList.remove('desciption_animation');
+    void descriptionDiv.offsetWidth;
+    descriptionDiv.classList.add('desciption_animation');
+    if(currentIdx === 0){
+        setSummaryDescription(currentAnimTargetPaths);
+        const bounds = calculateBounds(currentAnimTargetPaths);
+        panToVisiblePaths(bounds);
+    }
+    else if(currentIdx === (currentAnimTargetPaths.length + 1)){
+        descriptionDiv.textContent = `- ${(currentIdx)} -
+        도착!`;
+        panToGlobalMarker();
+    }else{
+        descriptionDiv.textContent = `- ${(currentIdx)} -
+        ${currentAnimTargetPaths[currentIdx - 1].description}`;
+        panToPathBound(currentAnimTargetPaths[currentIdx - 1]);
+    }
+}
+
+const animateZoomPath = () => {
+    spanningTime = ((currentIdx === currentAnimTargetPaths.length || currentIdx === currentAnimTargetPaths.length + 1) ? 6000 : (currentIdx === 0 ? 3500 : currentAnimTargetPaths[currentIdx-1].spanningTime)) * spanningTimefacor;
+    animTargetSpanningTime = new Date().getTime() + spanningTime;
+    console.log(animTargetSpanningTime);
+    animCallback = setTimeout(() => {
+        displayDescriptionByIdx();
+        currentIdx = (currentIdx + 1) % (currentAnimTargetPaths.length + 2);
+        animateZoomPath();
+    }, spanningTime);
+}
+
+const setVisilbities = (filter, paths) => {
+    const elements = document.querySelectorAll('[id*="way_"]');
+    elements.forEach((element) => {
+        element.classList.remove('btnWay_selected');
+    });
+    const selectedElements = document.getElementById(`way_${filter}`);
+    selectedElements.classList.add('btnWay_selected');
+
+    updatePathVisibility(paths, filter);
+    const targetPaths = filterPaths(paths, filter);
+    const bounds = calculateBounds(targetPaths);
+
+    panToVisiblePaths(bounds);
+    setSummaryDescription(targetPaths);
+    currentIdx = 1;
     currentAnimTargetPaths = targetPaths;
     clearAnimCallback();
     animateZoomPath();
-}
+};
+
+const calculateBounds = (paths) => {
+    const bounds = {
+        minPoint: { x: Number.MAX_VALUE, y: Number.MAX_VALUE },
+        maxPoint: { x: Number.MIN_VALUE, y: Number.MIN_VALUE }
+    };
+    paths.forEach((path) => {
+        bounds.minPoint.x = Math.min(bounds.minPoint.x, path.line.getBounds()._min.x);
+        bounds.minPoint.y = Math.min(bounds.minPoint.y, path.line.getBounds()._min.y);
+        bounds.maxPoint.x = Math.max(bounds.maxPoint.x, path.line.getBounds()._max.x);
+        bounds.maxPoint.y = Math.max(bounds.maxPoint.y, path.line.getBounds()._max.y);
+    });
+    return bounds;
+};
+
+const filterPaths = (paths, filter) => {
+    return paths.filter((path) => (path.filter & filter) > 0);
+};
+
+const updatePathVisibility = (paths, filter) => {
+    paths.forEach((path) => {
+        const isVisible = (path.filter & filter) > 0 ? true : false;
+        path.line.setVisible(isVisible);
+    });
+};
+
+const panToVisiblePaths = (bounds) => {
+    map.panToBounds(
+        new naver.maps.PointBounds(bounds.minPoint, bounds.maxPoint),
+        { duration: 500, easing: 'easeOutCubic' },
+        { top: 1, left: 1, right: 1, bottom: 1 }
+    );
+};
 const mapNaviProgressbarAnimate = () => {
     if(animCallback){
         const element = document.getElementById('map_navi_progressbar');
         element.style.width = `${((animTargetSpanningTime - new Date().getTime()) / spanningTime) * 100}%`;
     }
     requestAnimationFrame(mapNaviProgressbarAnimate);
+}
+
+const btnClickNextPath = () => {
+    if(!currentAnimTargetPaths || currentAnimTargetPaths.length === 0){
+        return;
+    }
+
+
+    clearAnimCallback();
+    currentIdx = (currentIdx + 1) % (currentAnimTargetPaths.length + 2);
+    displayDescriptionByIdx();
+}
+
+const btnClickPrevPath = () => {
+    if(!currentAnimTargetPaths || currentAnimTargetPaths.length === 0){
+        return;
+    }
+
+    clearAnimCallback();
+    if(currentIdx === 0){
+        currentIdx = currentAnimTargetPaths.length + 1;
+    }else{
+        currentIdx--;
+    }
+    displayDescriptionByIdx();
 }
