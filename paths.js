@@ -392,7 +392,6 @@ const btnClickNextPath = () => {
         return;
     }
 
-
     clearAnimCallback();
     currentIdx = (currentIdx + 1) % (currentAnimTargetPaths.length + 2);
     displayDescriptionByIdx();
