@@ -443,6 +443,22 @@ footer p {
     grid-template-columns: repeat(4, 1fr);
 }
 
+.btnWayHeader{
+    border: 1px solid #ddf;
+    background-color: #eef;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+    font-size: 0.85rem;
+    height: 4rem;
+    min-height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Added this line */
+    user-select: none; /* Added this line */
+    color: #75c;
+    z-index: 1;
+}
+
 .btnWay{
     border: 1px solid #fdd;
     background-color: #fff;

@@ -3,13 +3,8 @@ const callTmap = (lat, lng, name) => {
     window.location.href = url;
 }
 
-const callKakaonavi = (lat, lng) => {
-    const url = `kakaonavi://route?sp=${lat},${lng}&ep=${lat},${lng}&by=FOOT`;
-    window.location.href = url;
-}
-
 const callKakaomap = (lat, lng) => {
-    const url = `kakaomap://route?sp=${lat},${lng}&ep=${lat},${lng}&by=FOOT`;
+    const url = `kakaomap://route?ep=${lat},${lng}&by=CAR`;
     window.location.href = url;
 }
 

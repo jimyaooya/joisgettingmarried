@@ -253,7 +253,7 @@ const setSpanningTimeFactor = (factor) => {
 }
 
 let currentAnimTargetPaths = undefined;
-let currentIdx = 0;
+let currentIdx = 1;
 let spanningTime = undefined;
 let animCallback = undefined;
 let animTargetSpanningTime = 0;
@@ -341,9 +341,9 @@ const setVisilbities = (filter, paths) => {
 
     panToVisiblePaths(bounds);
     setSummaryDescription(targetPaths);
-    currentIdx = 1;
     currentAnimTargetPaths = targetPaths;
     clearAnimCallback();
+    currentIdx = 1;
     animateZoomPath();
 };
 
