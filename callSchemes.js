@@ -9,7 +9,7 @@ const callKakaonavi = (lat, lng) => {
 }
 
 const callKakaomap = (lat, lng) => {
-    const url = `kakaomap://look?p=${lat},${lng}`;
+    const url = `kakaomap://route?sp=${lat},${lng}&ep=${lat},${lng}&by=FOOT`;
     window.location.href = url;
 }
 
