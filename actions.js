@@ -44,7 +44,7 @@ const onScroll = () => {
     galleryContents.forEach((content, idx) => {
         const isVisible =(
             (IMG_WIDTH * (idx - 1)) - marginTop < animationProgress * IMG_TOTAL_LENGTH &&
-            (IMG_WIDTH * (idx + 3)) - marginTop > animationProgress * IMG_TOTAL_LENGTH
+            (IMG_WIDTH * (idx + 3)) - marginTop + window.innerWidth > animationProgress * IMG_TOTAL_LENGTH
         );
         if(isVisible){
             content.classList.add('gallery_content_visible');
