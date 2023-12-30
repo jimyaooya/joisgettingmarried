@@ -1,0 +1,62 @@
+/* FILEPATH: /e:/workspace/JimyaOoyaGetmarried/toast.css */
+
+.toast {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+
+    animation-name: toast-in;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;    
+}
+
+.toast_out{
+    animation-name: toast-out;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;    
+}
+
+.toast.success {
+    background-color: #4CAF50;
+}
+
+.toast.error {
+    background-color: #F44336;
+}
+
+.toast.warning {
+    background-color: #FFC107;
+}
+
+.toast.info {
+    background-color: #2196F3;
+}
+
+@keyframes toast-in {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 100%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes toast-out {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50%, -100%);
+    }
+}
