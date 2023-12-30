@@ -57,8 +57,8 @@ section.visible {
 @media (max-width: 768px) {
     .waves {
         padding-top: 4rem;
-        height: 5rem;
-        min-height: 5rem;
+        height: 5.1rem;
+        min-height: 5.1rem;
     }
     h1 {
         font-size: 24px;

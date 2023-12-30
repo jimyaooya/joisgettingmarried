@@ -5,6 +5,12 @@
     font-style: normal;
 }
 @font-face {
+    font-family: 'GowunBatang-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
     font-family: 'KyoboHandwriting2021sjy';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KyoboHandwriting2021sjy.woff2') format('woff2');
     font-weight: normal;
@@ -75,6 +81,7 @@ header{
     width: 100%;
     max-width: 1280px;
     display: inline-block;
+    margin-top: 1rem;
 }
 
 .titleBox{
@@ -114,7 +121,7 @@ header{
     background-position: calc(50% + 1.5rem) center; /*calc(50% + 1.5rem) */
     background-size: cover;
     background-repeat: no-repeat;
-    font-family: "KyoboHandwriting2020A";
+    font-family: "GowunBatang-Regular";
     /* font-family: "교보 손글씨 2021 성지영"; */
     color: #100;
     text-shadow: 0 0.05rem 0.3rem rgba(200,125,150,0.3);
@@ -149,7 +156,7 @@ header h2 {
     margin-left:0.75rem;
     line-height: 2rem;
     letter-spacing: 0.93rem;
-    font-family: "KyoboHandwriting2020A";
+    font-family: "GowunBatang-Regular";
 }
 h2 {
     margin: 0;
@@ -157,7 +164,7 @@ h2 {
     line-height: 2rem;
     color: #555;
     font-weight: lighter;
-    font-family: "KyoboHandwriting2020A";
+    font-family: "GowunBatang-Regular";
 }
 header hr{
     width:8rem;
@@ -188,7 +195,7 @@ header hr{
 }
 
 .nametitle{
-    font-family: "KyoboHandwriting2020A";
+    font-family: "GowunBatang-Regular";
     font-size: 1.35rem;
     margin-bottom: 1rem;
 }
@@ -228,7 +235,7 @@ main {
 }
 
 section {
-    font-family: "KyoboHandwriting2020A";
+    font-family: "GowunBatang-Regular";
     /* font-family: "교보 손글씨 2021 성지영"; */
     text-align: center;
     justify-content: center;
@@ -236,9 +243,9 @@ section {
 }
 
 .section_head{
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: 500;
-    letter-spacing: 0.21rem;
+    font-family: 'GowunBatang-Regular', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.25rem;
     color:#933;
 }
 
@@ -260,7 +267,8 @@ footer p {
 }
 
 .famcon{
-    font-family: "KyoboHandwriting2020A";
+    font-family: "GowunBatang-Regular";
+    font-weight: 500;
     width: 100%;
     color: #013;
     font-size: 1rem; 
@@ -272,6 +280,7 @@ footer p {
 
 .subfam{
     text-align: center;
+    font-weight: 500;
     width: calc(25%);
     float:none;
     line-height: 2rem;
@@ -286,7 +295,7 @@ footer p {
 }
 
 .splitter{
-    margin: 5rem 0rem;
+    margin: 5rem 0 3rem 0 ;
     width:10rem;
     display: inline-block;
     border-bottom:1px double #caa;
@@ -347,8 +356,8 @@ footer p {
 }
 
 .ddayhighlight{
-    color: #f53;
     font-weight: bold;
+    color: #f53;
 }
 .ddayhighlight::before{
     content: " ";
@@ -357,9 +366,10 @@ footer p {
     width: 2rem;
     height: 2rem;
     z-index: 0;
-    margin-top: -0.32rem;
-    margin-left: -0.45rem;
-    border: 2px dotted #c57;
+    margin-top: -0.31rem;
+    margin-left: -0.12rem;
+    display: flex;
+    border: 2px dotted #f53;
 }
 
 .ddayhighlight::after{
@@ -367,13 +377,13 @@ footer p {
     color: #c57;
     white-space: pre;
     font-size: 0.75rem;
-    font-family: "KyoboHandwriting2020A";
-    font-weight: 500;
+    font-family: "GowunBatang-Regular";
+    font-weight: 600;
     position: absolute;
     height: 2rem;
     z-index: 0;
     margin-top: 2rem;
-    margin-left: -2.6rem;
+    margin-left: -2.7rem;
 }
 
 @keyframes slide-up {
