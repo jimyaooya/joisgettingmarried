@@ -1,3 +1,23 @@
+
+const isMobile = () => {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+};
+
+const hideAppSchemeButtons = () => {
+    const appSchemeButtonContainer = document.querySelector('#appSchemeButtonsContainer');
+    appSchemeButtonContainer.style.display = 'none';
+    console.log(appSchemeButtonContainer);
+}
+
+const initAppSchemeButtons = () => {
+    console.log(isMobile());
+    if(isMobile()){
+        return;
+    }else{
+        hideAppSchemeButtons();
+    }
+}
+
 /**
  * scroll에 따른 section in-transition anim 처리
  */

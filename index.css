@@ -479,9 +479,7 @@ footer p {
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 500;
     font-size: 0.85rem;
-    height: 4rem;
     min-height: 4rem;
-    display: flex;
     align-items: center;
     justify-content: center; /* Added this line */
     user-select: none; /* Added this line */
@@ -608,4 +606,16 @@ footer p {
     left: 2px;
     top: 2px;
     box-shadow: 0 4px 0,0 8px 0
+}
+
+.appicon{
+    margin: 0.3rem;
+    min-height: 3rem;
+    min-width: 3rem;
+    border-radius: 0.7rem;
+    border: 1px solid rgba(150,125,145,0.2);
+    box-shadow: 0 0.1rem 0.2rem rgba(155,125,100,0.1);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
 }

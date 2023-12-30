@@ -88,10 +88,8 @@
         document.addEventListener("DOMContentLoaded", initMap);
         document.addEventListener("DOMContentLoaded", makeImgsElements);
         document.addEventListener("DOMContentLoaded", updateCountdown);
+        document.addEventListener("DOMContentLoaded", initAppSchemeButtons);
         window.addEventListener('scroll', onScroll);
-        const myCallback = (param) =>{
-            console.log("hi",param);
-        }
     </script>
 </head>
 <body>
@@ -323,22 +321,24 @@
                     </div>
                 </div>
             </div>
-            <div class="ways">
+            <div class="ways" id="appSchemeButtonsContainer">
                 <div class="btnContainer" style="grid-template-columns: repeat(3, 1fr);">
                     <div class="btnWay btnWay_left" onclick="callTmap(37.5140508,127.0372835,'빌라드지디강남')">
-                        <span>
-                            티맵
-                        </span>
+                        <div class="appicon" style="background-image: url(./imgs/appicon_tmap.webp);">
+                            　
+                        </div><br/>
+                        <span style="color:#433">티맵</span>
                     </div>
                     <div class="btnWay btnWay_middle" onclick="callKakaomap(37.5140508,127.0372835)">
-                        <span>
-                            카카오맵
-                        </span>
+                        <div class="appicon" style="background-image: url(./imgs/appicon_kakaomap.webp);">
+                            　
+                        </div><br/>
+                        <span style="color:#433">카카오맵</span>
                     </div>
                     <div class="btnWay btnWay_right" onclick="callNavermap(37.5140508,127.0372835,'빌라드지디강남')">
-                        <span>
-                            네이버맵
-                        </span>
+                        <div class="appicon" style="background-image: url(./imgs/appicon_navermap.webp);">
+                        </div><br/>
+                        <span style="color:#433">네이버맵</span>
                     </div>
                 </div>
             </div>
