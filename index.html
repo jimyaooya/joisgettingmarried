@@ -299,22 +299,22 @@
             <br/>
             <div class="ways">
                 <div class="btnContainer">
-                    <div id="way_4096" class="btnWay btnWay_left" onclick="setVisilbities(0x01000, paths)">
+                    <div id="way_4096" style="display: flex;" class="btnWay btnWay_left" onclick="setVisilbities(0x01000, paths)">
                         <span>
                             강남구청역
                         </span>
                     </div>
-                    <div id="way_65536" class="btnWay btnWay_middle" onclick="setVisilbities(0x10000, paths)">
+                    <div id="way_65536" style="display: flex;" class="btnWay btnWay_middle" onclick="setVisilbities(0x10000, paths)">
                         <span>
                             학동역
                         </span>
                     </div>
-                    <div id="way_256" class="btnWay btnWay_middle" onclick="setVisilbities(0x00100, paths)">
+                    <div id="way_256" style="display: flex;" class="btnWay btnWay_middle" onclick="setVisilbities(0x00100, paths)">
                         <span>
                             신사역
                         </span>
                     </div>
-                    <div id="way_16" class="btnWay btnWay_right" onclick="setVisilbities(0x00010, paths)">
+                    <div id="way_16" style="display: flex;" class="btnWay btnWay_right" onclick="setVisilbities(0x00010, paths)">
                         <span>
                             차량이용
                         </span>
@@ -324,20 +324,15 @@
             <div class="ways" id="appSchemeButtonsContainer">
                 <div class="btnContainer" style="grid-template-columns: repeat(3, 1fr);">
                     <div class="btnWay btnWay_left" onclick="callTmap(37.5140508,127.0372835,'빌라드지디강남')">
-                        <div class="appicon" style="background-image: url(./imgs/appicon_tmap.webp);">
-                            　
-                        </div><br/>
+                        <div class="appicon" style="background-image: url(./imgs/appicon_tmap.webp);">　</div><br/>
                         <span style="color:#433">티맵</span>
                     </div>
                     <div class="btnWay btnWay_middle" onclick="callKakaomap(37.5140508,127.0372835)">
-                        <div class="appicon" style="background-image: url(./imgs/appicon_kakaomap.webp);">
-                            　
-                        </div><br/>
-                        <span style="color:#433">카카오맵</span>
+                        <div class="appicon" style="background-image: url(./imgs/appicon_kakaomap.webp);">　</div><br/>
+                        <span style="color:#433;">카카오맵</span>
                     </div>
                     <div class="btnWay btnWay_right" onclick="callNavermap(37.5140508,127.0372835,'빌라드지디강남')">
-                        <div class="appicon" style="background-image: url(./imgs/appicon_navermap.webp);">
-                        </div><br/>
+                        <div class="appicon" style="background-image: url(./imgs/appicon_navermap.webp);">　</div><br/>
                         <span style="color:#433">네이버맵</span>
                     </div>
                 </div>
