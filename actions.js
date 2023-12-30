@@ -40,5 +40,17 @@ const onScroll = () => {
         right: ${keyframeRight}px;
         top: ${topPos}px;
     `;
+    let galleryContents = document.querySelectorAll('.gallery_content');
+    galleryContents.forEach((content, idx) => {
+        const isVisible =(
+            (IMG_WIDTH * (idx - 1)) - marginTop < animationProgress * IMG_TOTAL_LENGTH &&
+            (IMG_WIDTH * (idx + 3)) - marginTop > animationProgress * IMG_TOTAL_LENGTH
+        );
+        if(isVisible){
+            content.classList.add('gallery_content_visible');
+        }else{
+            content.classList.remove('gallery_content_visible');
+        }
+    });
     document.querySelector(".ani_start").style = `height: ${IMG_TOTAL_LENGTH + marginTop}px`;
 };

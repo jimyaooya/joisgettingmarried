@@ -26,7 +26,7 @@
     background-color: rgba(255,255,255,0.4);
     border: 1px solid rgba(125,125,125,0.3);
     box-shadow: 0 0 0.5rem rgba(155,125,100,0.5);
-    z-index: 100;
+    z-index: 999999;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -310,6 +310,7 @@ footer p {
     background-size: cover;
     border: 1px solid rgba(250,225,250,1);
     box-shadow: 0 0.5rem 1rem rgba(150,150,150,0.25);
+    visibility: hidden;
 }
 
 .gallery_content_blured{
@@ -318,6 +319,9 @@ footer p {
     position: absolute;
     z-index: -1;
     margin-left: -2rem;
+}
+.gallery_content_visible{
+    visibility: visible;
 }
 
 .calendar {
