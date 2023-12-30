@@ -318,7 +318,6 @@ const displayDescriptionByIdx = () => {
 const animateZoomPath = () => {
     spanningTime = ((currentIdx === currentAnimTargetPaths.length || currentIdx === currentAnimTargetPaths.length + 1) ? 6000 : (currentIdx === 0 ? 3500 : currentAnimTargetPaths[currentIdx-1].spanningTime)) * spanningTimefacor;
     animTargetSpanningTime = new Date().getTime() + spanningTime;
-    console.log(animTargetSpanningTime);
     animCallback = setTimeout(() => {
         displayDescriptionByIdx();
         currentIdx = (currentIdx + 1) % (currentAnimTargetPaths.length + 2);
