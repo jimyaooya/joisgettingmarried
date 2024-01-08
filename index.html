@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="anim.css">
     <link rel="stylesheet" href="toast.css">
+    <link rel="stylesheet" href="visitorboard.css">
     <head>
     <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=vu1xmgid7i"></script>
     <script src="./callSchemes.js"></script>
@@ -25,6 +26,7 @@
     <script src="./init.js"></script>
     <script src="./actions.js"></script>
     <script src="./toast.js"></script>
+    <script src="./visitorboard.js"></script>
     <script>
         /**
          * @type {string[]} url of images
@@ -82,6 +84,7 @@
                 }
             }, 2500);
         }
+        
         document.addEventListener("DOMContentLoaded", initMusic);
         document.addEventListener("DOMContentLoaded", initSectionAnim);
         document.addEventListener("DOMContentLoaded", initCanvas);
@@ -151,7 +154,7 @@
                     </g>
                 </svg>
             </div>
-            <div id="bgm-component" style="position: fixed;right: 1rem;top:1rem">
+            <div id="bgm-component" style="position: fixed;right: 1rem;top:1rem;z-index: 10;">
                 <div class="audio-player">
                     <audio id="bgm-player" loop="loop" autoplay="autoplay">
                         <source src="./ppp.mp3">
@@ -161,14 +164,21 @@
                     </button>
                 </div>
             </div>
+            <div id="bgm-component" style="position: fixed;right: 1rem;top:5rem;z-index: 10;">
+                <div>
+                    <button id="bgm-toggle" onclick="showDimDiv()">
+                        C
+                    </button>
+                </div>
+            </div>
         </div>
     </header>
     <main>
         <section class="section_head">
             <span style="position:relative; bottom: -2.5rem;">♥</span>
             <h1 class="greetings section_head">모시는글</h1>
-            <h2>일곱번의 봄을 함께했습니다</h2>
-            <h2>이번 여덟번째 봄에선</h2>
+            <h2>일곱 번의 봄을 함께했습니다</h2>
+            <h2>다가오는 여덟 번째 봄에선</h2>
             <h2>서로의 평생을 약속하려 합니다</h2>
             <h2>　</h2>
             <h2>꽃보다 아름답게</h2>    
@@ -367,7 +377,23 @@
         </div>
             
         <div class="ani_end"></div>
+        <div>
+            <div class="dim" style="visibility: collapse;">
+                <div class="visitor_header">
+                    <button id="bgm-toggle" onclick="hideDimDiv()" style="margin: 2rem 0rem;">
+                        X
+                    </button>
+                    <div class="rolling_container">
+                        　
+                    </div>
+                </div>
+                <div class="visitor_container">
+                    <div class="visitor_details">
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
-    
 </body>
 </html>

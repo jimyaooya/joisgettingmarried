@@ -1,4 +1,4 @@
-let spanningTimefacor = 0.5;
+let spanningTimefacor = 1.25;
 const initialPaths = (map) => {
     const byWalk1_학동역 = new naver.maps.Polyline({
         map: map,
