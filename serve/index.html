@@ -27,6 +27,7 @@
     <script src="./actions.js"></script>
     <script src="./toast.js"></script>
     <script src="./visitorboard.js"></script>
+    <script src="./lib/sp.js"></script>
     <script>
         /**
          * @type {string[]} url of images
@@ -88,7 +89,7 @@
         document.addEventListener("DOMContentLoaded", initMusic);
         document.addEventListener("DOMContentLoaded", initSectionAnim);
         document.addEventListener("DOMContentLoaded", initCanvas);
-        document.addEventListener("DOMContentLoaded", initMap);
+        //document.addEventListener("DOMContentLoaded", initMap);
         document.addEventListener("DOMContentLoaded", makeImgsElements);
         document.addEventListener("DOMContentLoaded", updateCountdown);
         document.addEventListener("DOMContentLoaded", initAppSchemeButtons);
@@ -390,6 +391,16 @@
                 <div class="visitor_container">
                     <div class="visitor_details">
 
+                    </div>
+                </div>
+                <div>
+                    <div class="visitor_footer">
+                        <div class="visitor_submit">
+                            <button id="visitor_submit" onclick="submitVisitorComment()">등록</button>
+                        </div>
+                        <div class="visitor_input">
+                            <input type="text" id="visitor_input" placeholder="방명록을 남겨주세요">
+                        </div>
                     </div>
                 </div>
             </div>
