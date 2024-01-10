@@ -26,7 +26,7 @@
     height: 100vh;
     top: 0;
     left: 0;
-    background-color: rgba(25,0,5,0.5);
+    background-color: rgba(130,52,90,0.35);
 
     animation-name: opacity_anim;
     animation-duration: 2.25s;
@@ -44,7 +44,7 @@
 
 .visitor_container {
     width: 100%;
-    height: 65vh;
+    height: 75vh;
     position: fixed;
     top: 0;
     left: 0;
@@ -62,41 +62,52 @@
     justify-content: center;
     align-items: center;
     color:white;
-    bottom: 30vh;
+    bottom: 21vh;
     left: 0;
     position: fixed;
 }
 .visitor_input{
     padding: 0.5rem;
+    text-align: center;
+    justify-content: center;
 }
 #visitor_input {
+    max-width: 512px;
     width: 65vw;
     height: 2rem;
-    color: white;
+    color: rgb(126, 32, 72);
     padding: 1rem;
-    background-color: #c58;
+    border: 0.5rem solid #c58;
+    background-color: white;
     border-radius: 3rem;
     font-size: 1rem;
     z-index: 2;
     text-align: center;
-    border: none;
     transition: all 0.5s ease-in-out;
+}
+#visitor_submit{
+    margin: 0.5rem;
+    text-align: center;
+    padding: 0.5rem;
+
 }
 
 #visitor_input::placeholder {
-    color: #fab;
+    color: rgb(121, 82, 99);
 }
 
 #visitor_input:focus {
     outline: none;
-    border: none;
-    box-shadow: 0 0 3rem rgba(255, 255, 255, 0.5);
+    border: 0.35rem solid #e7a;
+    box-shadow: 0 0 3rem rgba(255, 225, 237, 0.5);
+    max-width: 600px;
     width: 80vw;
     height: 3rem;
     transition: all 0.5s ease-in-out;
 }
 
-.visitor_detail{
+.visitor_details{
+    max-width: 768px;
     float: center;
 }
 .rolling_container{
@@ -115,30 +126,95 @@
     animation-duration: 0.5s;
     animation-fill-mode: forwards;   
     transition: all 0.5s ease-in-out;
-    padding: 0.5rem;
+    padding: 1rem;
     margin: 0.3rem;
     color:rgb(219, 216, 216);
-    background-color: rgba(225, 181, 221, 0.1);
+    background-color: rgba(115, 5, 5, 0.1);
     border-radius: 3px;
-    font-size:0.85rem;
+    font-size:0.9rem;
     filter: blur(1px);
+    width: 10rem;
     z-index: 1;
-    /* border: 1px solid rgba(255,255,255,0.3);
-    background: rgba(233, 134, 151, 0.5);
-    border-radius: 5px;
+    /* text overflow controll */
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.visitors_content:hover {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    animation-name: contentpop;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;   
+    transition: all 0.5s ease-in-out;
+    padding: 1rem;
     margin: 0.3rem;
-    padding: 1rem; */
+    color:rgb(219, 216, 216);
+    box-shadow: 0 0 3rem rgba(255, 0, 0, 0.5);
+    text-shadow: 0 0 1rem rgba(255, 125, 125, 1);
+    background-color: #c58;
+    border-radius: 3px;
+    font-size:0.9rem;
+    filter: blur(0px);
+    width: 10rem;
+    z-index: 3;
+
+    /* text overflow controll */
+    overflow: hidden;
+    text-overflow:unset;
+    white-space:unset;
 }
 
 .visitors_content_highlight{
-    color:white;
-    box-shadow: 0 0 3rem rgba(255, 0, 0, 0.5);
+    position: absolute;
+    top: 40%;
+    left: calc(50% - 10rem);
+    color:#def;
+    box-shadow: 0 0 3rem rgba(255, 100, 100, 0.5);
     text-shadow: 0 0 1rem rgba(255, 125, 125, 1);;
-    padding: 1rem;
-    margin: -1rem;
+    padding: 1.25rem 3em;
+    line-height: 2rem;
+    letter-spacing: 0.05rem;
     background-color: #c58;
-    border-radius: 3rem;
+    border-radius: 2rem;
     font-size:1rem;
+    width: 14rem;
     z-index: 2;
     filter: blur(0px);
+
+    /* text overflow controll */
+    overflow: hidden;
+    text-overflow:unset;
+    white-space:unset;
+}
+
+#visitor_writer{
+    border: none;
+    color: #e8a;
+    background-color: transparent;
+    border-bottom: 1px solid #c58;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 1);
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: normal;
+    margin: 1rem;
+    padding: 0.25rem;
+    transition: all 0.5s ease-in-out;
+}
+#visitor_writer::placeholder{
+    color: white;
+}
+#visitor_writer:focus::placeholder{
+    color: #e8a;
+}
+#visitor_writer:focus{
+    outline: none;
+    color: #fbd;
+    border: none;
+    font-weight: bold;
+    background: transparent;
+    border-bottom: 3px solid #f9b;
+    transition: all 0.5s ease-in-out;
+    padding: 0.25rem 2rem;
 }

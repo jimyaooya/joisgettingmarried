@@ -86,6 +86,13 @@
             }, 2500);
         }
         
+        const submitEnter = (event) => {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById("visitor_submit").click();
+            }
+        }
+
         document.addEventListener("DOMContentLoaded", initMusic);
         document.addEventListener("DOMContentLoaded", initSectionAnim);
         document.addEventListener("DOMContentLoaded", initCanvas);
@@ -396,10 +403,11 @@
                 <div>
                     <div class="visitor_footer">
                         <div class="visitor_submit">
-                            <button id="visitor_submit" onclick="submitVisitorComment()">등록</button>
+                            <input type="text" id="visitor_writer" placeholder="이름" spellcheck="false">
                         </div>
                         <div class="visitor_input">
-                            <input type="text" id="visitor_input" placeholder="방명록을 남겨주세요">
+                            <input type="text" id="visitor_input"  onkeyup="submitEnter(event)" placeholder="방명록을 남겨주세요" spellcheck="false"><br/>
+                            <button id="visitor_submit" onclick="submitVisitorComment()">등록</button>
                         </div>
                     </div>
                 </div>

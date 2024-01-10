@@ -56,7 +56,7 @@ const createCommentsOnDim = (comments) => {
     comments.forEach(comment => {
         dimDiv.innerHTML += `<div class="visitors_content" key="${comment.key}">
             <span>${comment.content}</span><br/>
-            <span style="float:center;margin:0.5rem;font-size:0.75rem">${comment.writer}</span>
+            <span style="float:center;margin:0.5rem;padding-top:1rem;font-size:0.75rem;font-weight:bold;">${comment.writer}</span>
         </div>`;
     });
 }
@@ -159,13 +159,18 @@ const registerComment = async (content, writer) => {
 };
 
 const submitVisitorComment = () => {
-    const content = document.querySelector('#visitor_input').value;
-    const writer = "익명";//document.querySelector('#visitor_writer').value;
+    const inputElement = document.querySelector('#visitor_input');
+    const writerInputElement = document.querySelector('#visitor_writer');
+    const content = inputElement.value;
+    const writer = writerInputElement.value;
     registerComment({content, writer})
     .then(res => {
         currentComments.push({content, writer});
         const dimDiv = document.querySelector('.visitor_details');
         dimDiv.innerHTML = '';
         createCommentsOnDim(currentComments);
+        
+        inputElement.value = '';
+        writerInputElement.value = '';
     });
 }
