@@ -134,6 +134,7 @@
     font-size:0.9rem;
     filter: blur(1px);
     width: 10rem;
+    max-width: 33vw;
     z-index: 1;
     /* text overflow controll */
     text-overflow: ellipsis;
@@ -158,6 +159,7 @@
     font-size:0.9rem;
     filter: blur(0px);
     width: 10rem;
+    max-width: 33vw;
     z-index: 3;
 
     /* text overflow controll */
@@ -180,6 +182,7 @@
     border-radius: 2rem;
     font-size:1rem;
     width: 14rem;
+    max-width: 14rem;
     z-index: 2;
     filter: blur(0px);
 
