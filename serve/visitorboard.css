@@ -1,12 +1,10 @@
 @keyframes contentpop {
     0% {
         opacity: 0;
-        transform: scale(0.5);
         transform: translate(0%, 100%);
     }
     100% {
         opacity: 1;
-        transform: scale(1);
         transform: translate(0%, -50%);
     }
 }
@@ -40,6 +38,7 @@
     align-items: center;
     color:white;
     opacity: 1;
+    background: linear-gradient(to bottom, rgba(253, 212, 212,0.7) 0%, rgba(234, 115, 166,0) 20%);
 }
 
 .visitor_container {
@@ -55,6 +54,7 @@
     color:white;
     text-align: center;
 }
+
 .visitor_footer{
     width: 100%;
     display: flex;
@@ -62,7 +62,9 @@
     justify-content: center;
     align-items: center;
     color:white;
-    bottom: 10vh;
+    bottom: 0;
+    padding-bottom: 10vh;
+    background: linear-gradient(to bottom, rgba(234, 115, 166,0) 0%, rgba(253, 212, 212,0.7) 40%);
     left: 0;
     position: fixed;
 }
@@ -106,8 +108,24 @@
     transition: all 0.5s ease-in-out;
 }
 
-.visitor_details{
-    max-width: 768px;
+.visitor_comment_header{
+    height:70vh;
+}
+.visitor_comment_greeting{
+    margin-bottom: 3rem;
+    text-shadow: 0 0 0.5rem rgba(195, 95, 125, 1);
+}
+
+#visitor_comment_container{
+    font-family: "GowunBatang-Regular";
+    width: 100%;
+    overflow-y: auto;
+}
+.visitor_comment{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     float: center;
 }
 .rolling_container{
@@ -119,77 +137,48 @@
 }
 
 .visitors_content {
-    display: inline-block;
-    position: relative;
     text-align: center;
+
     animation-name: contentpop;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;   
     transition: all 0.5s ease-in-out;
+
     padding: 1rem;
-    margin: 0.3rem;
+    margin: 1rem;
     color:rgb(219, 216, 216);
-    background-color: rgba(115, 5, 5, 0.1);
     border-radius: 3px;
     font-size:0.9rem;
-    filter: blur(1px);
-    width: 10rem;
-    max-width: 33vw;
+    filter: blur(2px);
+    max-width: 65vw;
     z-index: 1;
     /* text overflow controll */
-    text-overflow: ellipsis;
+    /* text-overflow: ellipsis;
     overflow: hidden;
-    white-space: nowrap;
-}
-.visitors_content:hover {
-    display: inline-block;
-    position: relative;
-    text-align: center;
-    animation-name: contentpop;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;   
-    transition: all 0.5s ease-in-out;
-    padding: 1rem;
-    margin: 0.3rem;
-    color:rgb(219, 216, 216);
-    box-shadow: 0 0 3rem rgba(255, 0, 0, 0.5);
-    text-shadow: 0 0 1rem rgba(255, 125, 125, 1);
-    background-color: #c58;
-    border-radius: 3px;
-    font-size:0.9rem;
-    filter: blur(0px);
-    width: 10rem;
-    max-width: 33vw;
-    z-index: 3;
-
-    /* text overflow controll */
-    overflow: hidden;
-    text-overflow:unset;
-    white-space:unset;
+    white-space: nowrap; */
 }
 
 .visitors_content_highlight{
-    position: absolute;
-    top: 40%;
-    left: calc(50% - 10rem);
-    color:#def;
-    box-shadow: 0 0 3rem rgba(255, 100, 100, 0.5);
-    text-shadow: 0 0 1rem rgba(255, 125, 125, 1);;
-    padding: 1.25rem 3em;
-    line-height: 2rem;
-    letter-spacing: 0.05rem;
-    background-color: #c58;
-    border-radius: 2rem;
-    font-size:1rem;
-    width: 14rem;
-    max-width: 14rem;
-    z-index: 2;
+    text-align: center;
+    animation-name: contentpop;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;   
+    transition: all 0.5s ease-in-out;
+    padding: 1rem;
+    margin: 1rem;
+    color:white;
+    font-weight: bold;
+    text-shadow: 0 0 0.5rem rgba(195, 95, 125, 1);
+    border-radius: 3px;
+    font-size:0.9rem;
     filter: blur(0px);
+    max-width: 65vw;
+    z-index: 3;
 
     /* text overflow controll */
-    overflow: hidden;
+    /* overflow: hidden;
     text-overflow:unset;
-    white-space:unset;
+    white-space:unset; */
 }
 
 #visitor_writer{

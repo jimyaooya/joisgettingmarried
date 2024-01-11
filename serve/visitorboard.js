@@ -1,26 +1,30 @@
 const currentComments = [];
-let currentTargetCommentIdx = [];
+// let currentTargetCommentIdx = [];
 let rollingCommentsCallback = undefined;
+let rollingCommentsCallback2 = undefined;
 
-const rollingComments = () => {
-    const comments = document.querySelectorAll('.visitors_content');
-    currentTargetCommentIdx.forEach(idx => {
-        const comment = comments[idx];
-        comment.classList.remove('visitors_content_highlight');
-    });
-    for(let i = 0; i < 1; i++){
-        const nextCommentIdx = Math.floor(Math.random() * comments.length);
-        currentTargetCommentIdx.push(nextCommentIdx);
-        const nextComment = comments[nextCommentIdx];
-        nextComment.classList.add('visitors_content_highlight');
-    }
-}
+// const rollingComments = () => {
+//     const comments = document.querySelectorAll('.visitors_content');
+//     currentTargetCommentIdx.forEach(idx => {
+//         const comment = comments[idx];
+//         comment.classList.remove('visitors_content_highlight');
+//     });
+//     for(let i = 0; i < 1; i++){
+//         const nextCommentIdx = Math.floor(Math.random() * comments.length);
+//         currentTargetCommentIdx.push(nextCommentIdx);
+//         const nextComment = comments[nextCommentIdx];
+//         nextComment.classList.add('visitors_content_highlight');
+//     }
+// }
 
 const startRolling = () => {
-    rollingCommentsCallback = setInterval(rollingComments, 5000);
+    // rollingCommentsCallback = setInterval(rollingComments, 5000);
+    rollingCommentsCallback2 = requestAnimationFrame(movingSlowlyUp);
+    
 }
 const stopRolling = () => {
-    rollingCommentsCallback && clearInterval(rollingCommentsCallback);
+    // rollingCommentsCallback && clearInterval(rollingCommentsCallback);
+    rollingCommentsCallback2 && cancelAnimationFrame(rollingCommentsCallback2);
 }
 
 const showDimDiv = () => {
@@ -33,13 +37,13 @@ const showDimDiv = () => {
     .then(comments => {
         currentComments.push(...comments);
         createCommentsOnDim(currentComments);
-        rollingComments();
+        //rollingComments();
         startRolling();
     });
 }
 
 const clearDimDiv = () => {
-    const dimDiv = document.querySelector('.visitor_details');
+    const dimDiv = document.querySelector('.visitor_comment');
     dimDiv.innerHTML = '';
     currentComments.length = 0;
 }
@@ -52,11 +56,11 @@ const hideDimDiv = () => {
 }
 
 const createCommentsOnDim = (comments) => {
-    const dimDiv = document.querySelector('.visitor_details');
+    const dimDiv = document.querySelector('.visitor_comment');
     comments.forEach(comment => {
         dimDiv.innerHTML += `<div class="visitors_content" key="${comment.key}">
             <span>${comment.content}</span><br/>
-            <span style="float:center;margin:0.5rem;padding-top:1rem;font-size:0.75rem;font-weight:bold;">${comment.writer}</span>
+            <span style="float:center;margin:0.5rem;padding-top:1rem;font-size:0.75rem;font-weight:normal !important;">${comment.writer}</span>
         </div>`;
     });
 }
@@ -151,7 +155,7 @@ const registerComment = async (content, writer) => {
             resolve(true);
             toast('등록되었습니다');
         })
-        .catch(error => {
+        .catch(error => { 
             reject(error);
             toast(error.message);
         });
@@ -166,11 +170,35 @@ const submitVisitorComment = () => {
     registerComment({content, writer})
     .then(res => {
         currentComments.push({content, writer});
-        const dimDiv = document.querySelector('.visitor_details');
+        const dimDiv = document.querySelector('.visitor_comment');
         dimDiv.innerHTML = '';
         createCommentsOnDim(currentComments);
         
         inputElement.value = '';
         writerInputElement.value = '';
+    });
+}
+
+let currentScrollTopValue = 0;
+const movingSlowlyUp = () =>{
+    const dimDiv = document.querySelector('#visitor_comment_container');
+    dimDiv.scrollTop = dimDiv.scrollTop + (currentScrollTopValue++)/3;
+    currentScrollTopValue %= 4;
+    highlightCommentByScrollPosition(dimDiv.scrollTop);
+    if(dimDiv.scrollHeight - dimDiv.scrollTop <= dimDiv.clientHeight){
+        dimDiv.scrollTop = 0;
+    }
+    rollingCommentsCallback2 = requestAnimationFrame(movingSlowlyUp);
+}
+
+const highlightCommentByScrollPosition = (scrollTop) => {
+    const comments = document.querySelectorAll('.visitors_content');
+    const clientHeight = document.documentElement.clientHeight;
+    comments.forEach((comment, idx) => {
+        if(comment.offsetTop >= scrollTop + clientHeight / 5 && comment.offsetTop <= scrollTop + clientHeight / 3 * 1.75){
+            comment.classList.add('visitors_content_highlight');
+        }else{
+            comment.classList.remove('visitors_content_highlight');
+        }
     });
 }

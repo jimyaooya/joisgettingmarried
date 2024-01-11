@@ -10,7 +10,7 @@ const getComments = async (pagination) => {
         .from('visitorboard')
         .select('*')
         .order('created_at', { ascending: false })
-        .range(pagination * 10, pagination * 10 + 10)
+        // .range(pagination * 10, pagination * 10 + 10)
     if (error) console.log('error', error)
     return data
 }
