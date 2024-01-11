@@ -195,7 +195,7 @@ const highlightCommentByScrollPosition = (scrollTop) => {
     const comments = document.querySelectorAll('.visitors_content');
     const clientHeight = document.documentElement.clientHeight;
     comments.forEach((comment, idx) => {
-        if(comment.offsetTop >= scrollTop + clientHeight / 5 && comment.offsetTop <= scrollTop + clientHeight / 3 * 1.75){
+        if(comment.offsetTop >= scrollTop + clientHeight / 5 && comment.offsetTop <= scrollTop + clientHeight / 3 * 2){
             comment.classList.add('visitors_content_highlight');
         }else{
             comment.classList.remove('visitors_content_highlight');
