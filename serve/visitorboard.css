@@ -120,7 +120,10 @@
     font-family: "GowunBatang-Regular";
     width: 100%;
     overflow-y: auto;
+    scrollbar-color: rgba(234, 115, 166, 0.3) rgba(253, 212, 212, 0.2);
 }
+
+
 .visitor_comment{
     display: flex;
     flex-direction: column;

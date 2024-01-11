@@ -1,29 +1,11 @@
 const currentComments = [];
-// let currentTargetCommentIdx = [];
-let rollingCommentsCallback = undefined;
 let rollingCommentsCallback2 = undefined;
 
-// const rollingComments = () => {
-//     const comments = document.querySelectorAll('.visitors_content');
-//     currentTargetCommentIdx.forEach(idx => {
-//         const comment = comments[idx];
-//         comment.classList.remove('visitors_content_highlight');
-//     });
-//     for(let i = 0; i < 1; i++){
-//         const nextCommentIdx = Math.floor(Math.random() * comments.length);
-//         currentTargetCommentIdx.push(nextCommentIdx);
-//         const nextComment = comments[nextCommentIdx];
-//         nextComment.classList.add('visitors_content_highlight');
-//     }
-// }
-
 const startRolling = () => {
-    // rollingCommentsCallback = setInterval(rollingComments, 5000);
     rollingCommentsCallback2 = requestAnimationFrame(movingSlowlyUp);
     
 }
 const stopRolling = () => {
-    // rollingCommentsCallback && clearInterval(rollingCommentsCallback);
     rollingCommentsCallback2 && cancelAnimationFrame(rollingCommentsCallback2);
 }
 
@@ -37,7 +19,6 @@ const showDimDiv = () => {
     .then(comments => {
         currentComments.push(...comments);
         createCommentsOnDim(currentComments);
-        //rollingComments();
         startRolling();
     });
 }
@@ -153,6 +134,7 @@ const registerComment = async (content, writer) => {
         insertComment(content, writer)
         .then(res => {
             resolve(true);
+            showDimDiv();
             toast('등록되었습니다');
         })
         .catch(error => { 

@@ -17,6 +17,34 @@
     font-style: normal;
 }
 
+/* FILEPATH: /e:/workspace/JimyaOoyaGetmarried/serve/index.css */
+/* BEGIN: be15d9bcejpp */
+/* ...existing code... */
+
+/* Style the scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(234, 115, 166, 0.7) rgba(253, 212, 212, 0.7);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(253, 212, 212, 0.7);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(234, 115, 166, 0.7);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(234, 115, 166, 1);
+}
+
 #bgm-toggle{
     width: 1.5rem !important;
     height: 1.5rem !important;
