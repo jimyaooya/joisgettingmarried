@@ -78,14 +78,14 @@ const toHome = () => {
 
 const toGallery = () => {
     window.scrollTo({
-        top: document.querySelector('.ani_start').getBoundingClientRect().top,
+        top: window.scrollY + document.querySelector('.ani_start').getBoundingClientRect().top,
         behavior: `smooth`
     });
 }
 
 const toMap = () => {
     window.scrollTo({
-        top: document.querySelector('#map_header').getBoundingClientRect().top,
+        top: window.scrollY + document.querySelector('#map_header').getBoundingClientRect().top,
         behavior: `smooth`
     });
 }
