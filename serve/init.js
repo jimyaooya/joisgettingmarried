@@ -6,11 +6,9 @@ const isMobile = () => {
 const hideAppSchemeButtons = () => {
     const appSchemeButtonContainer = document.querySelector('#appSchemeButtonsContainer');
     appSchemeButtonContainer.style.display = 'none';
-    console.log(appSchemeButtonContainer);
 }
 
 const initAppSchemeButtons = () => {
-    console.log(isMobile());
     if(isMobile()){
         return;
     }else{
