@@ -82,3 +82,10 @@ const toGallery = () => {
         behavior: `smooth`
     });
 }
+
+const toMap = () => {
+    window.scrollTo({
+        top: document.querySelector('#map_header').getBoundingClientRect().top,
+        behavior: `smooth`
+    });
+}

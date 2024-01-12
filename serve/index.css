@@ -79,6 +79,23 @@
     color:rgb(255, 246, 248) !important;
 }
 
+.toMap::after {
+    content: "오시는길";
+    position: absolute;
+    bottom: 10%;
+    left: -100%;
+    width: 3rem;
+    transform: translateX(-50%);
+    background-color: #c58;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
 .toHome::after {
     content: "위로";
     position: absolute;
@@ -147,11 +164,11 @@
     color:rgb(255, 246, 248) !important;
 }
 
-.bgm-toggle:hover::after {
+#bgm-toggle:hover::after {
     opacity: 1;
     visibility: visible;
 }
-.bgm-toggle::after {
+#bgm-toggle::after {
     content: "배경음악";
     position: absolute;
     bottom: 10%;
