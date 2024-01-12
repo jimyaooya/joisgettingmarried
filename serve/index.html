@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="visitorboard.css">
     <head>
     <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=vu1xmgid7i"></script>
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.min.js" integrity="sha384-6MFdIr0zOira1CHQkedUqJVql0YtcZA1P0nbPrQYJXVJZUkTk/oX4U9GhUIs3/z8" crossorigin="anonymous"></script>
     <script src="./callSchemes.js"></script>
     <script src="./paths.js"></script>
     <script src="./count.js"></script>
@@ -28,6 +29,7 @@
     <script src="./toast.js"></script>
     <script src="./visitorboard.js"></script>
     <script src="./lib/sp.js"></script>
+    <script src="share.js"></script>
     <script>
         /**
          * @type {string[]} url of images
@@ -100,6 +102,7 @@
         document.addEventListener("DOMContentLoaded", makeImgsElements);
         document.addEventListener("DOMContentLoaded", updateCountdown);
         document.addEventListener("DOMContentLoaded", initAppSchemeButtons);
+        document.addEventListener("DOMContentLoaded", kakaoApiInitialize);
         window.addEventListener('scroll', onScroll);
     </script>
 </head>
@@ -368,6 +371,18 @@
             <span style="position:relative; bottom: -2.5rem;">♥</span>
             <h1 class="greetings section_head">마음보내실곳</h1>
             <h2>계좌정보...</h2>
+            <br/>
+            <div class="splitter">
+            </div>
+        </section>
+        <section class="section_head" style="margin-top: 2rem;">
+            <span style="position:relative; bottom: -2.5rem;">♥</span>
+            <h1 class="greetings section_head">공유하기</h1>
+            <br/>
+            <a id="kakaotalk-sharing-btn" href="javascript:shareMessage()">
+                <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
+                alt="카카오톡 공유 보내기 버튼" />
+            </a>
             <br/>
             <div class="splitter">
             </div>
