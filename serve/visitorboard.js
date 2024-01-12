@@ -157,10 +157,11 @@ const submitVisitorComment = () => {
     const writer = writerInputElement.value;
     registerComment({content, writer})
     .then(res => {
-        currentComments.push({content, writer});
-        const dimDiv = document.querySelector('.visitor_comment');
-        dimDiv.innerHTML = '';
-        createCommentsOnDim(currentComments);
+        showDimDiv();
+        // currentComments.push({content, writer});
+        // const dimDiv = document.querySelector('.visitor_comment');
+        // dimDiv.innerHTML = '';
+        // createCommentsOnDim(currentComments);
         
         inputElement.value = '';
         writerInputElement.value = '';
