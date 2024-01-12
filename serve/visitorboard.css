@@ -67,12 +67,17 @@
     background: linear-gradient(to bottom, rgba(234, 115, 166,0) 0%, rgba(253, 212, 212,0.7) 40%);
     left: 0;
     position: fixed;
+    opacity: 0;
+    animation: opacity_anim 2.25s forwards;
+    animation-delay: 0.5s;
 }
+
 .visitor_input{
     padding: 0.5rem;
     text-align: center;
     justify-content: center;
 }
+
 #visitor_input {
     max-width: 512px;
     width: 65vw;
@@ -85,13 +90,11 @@
     font-size: 1rem;
     z-index: 2;
     text-align: center;
-    transition: all 0.5s ease-in-out;
 }
 #visitor_submit{
     margin: 0.5rem;
     text-align: center;
     padding: 0.5rem;
-
 }
 
 #visitor_input::placeholder {
