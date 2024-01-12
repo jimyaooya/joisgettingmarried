@@ -53,4 +53,33 @@ const onScroll = () => {
         }
     });
     document.querySelector(".ani_start").style = `height: ${IMG_TOTAL_LENGTH + marginTop}px`;
+
+    
+    const isMaxScrollDown = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 50;
+
+    if(isMaxScrollDown){
+        const dimDiv = document.querySelector('.dim');
+        const isVisible = dimDiv.style.visibility === 'visible';
+        if(!isVisible){
+            showDimDiv();
+            window.scrollTo({
+                top: window.scrollY - 250,
+                behavior: `smooth`
+            });
+        }
+    }
 };
+
+const toHome = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: `smooth`
+    });
+}
+
+const toGallery = () => {
+    window.scrollTo({
+        top: document.querySelector('.ani_start').getBoundingClientRect().top,
+        behavior: `smooth`
+    });
+}

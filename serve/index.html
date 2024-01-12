@@ -2,8 +2,8 @@
 <html lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>이정욱 · 정지현 - 24년 4월 28일 일요일 11:30 빌라드지디 강남</title>
-    <meta property="og:title" content="이정욱 · 정지현 - 24년 4월 28일 일요일 11:30 빌라드지디 강남" />
+    <title> 💌초대합니다 | 이정욱 💍 정지현 | 4월28일 일요일 11:30am | 빌라드지디 강남</title>
+    <meta property="og:title" content="💌초대합니다 | 이정욱 💍 정지현 | 4월28일 일요일 11:30am | 빌라드지디 강남" />
     <meta property="og:url" content="https://jimyaooya.github.io/joisgettingmarried" />
     <meta property="og:image" content="https://jimyaooya.github.io/joisgettingmarried/imgs/wp000a.jpg" />
     <meta
@@ -170,15 +170,29 @@
                     <audio id="bgm-player" loop="loop" autoplay="autoplay">
                         <source src="./ppp.mp3">
                     </audio>
-                    <button id="bgm-toggle" onclick="toggleBGM()">
+                    <button id="bgm-toggle" class="btnFloat" style="color:#334" onclick="toggleBGM()">
                         ♪
                     </button>
                 </div>
             </div>
-            <div id="bgm-component" style="position: fixed;right: 1rem;top:5rem;z-index: 10;">
+            <div id="bgm-component" style="position: fixed;right: 1rem;top:4.5rem;z-index: 10;">
                 <div>
-                    <button id="bgm-toggle" onclick="showDimDiv()">
-                        C
+                    <button id="visitor-toggle" class="btnFloat" onclick="showDimDiv()">
+                        🖍
+                    </button>
+                </div>
+            </div>
+            <div id="bgm-component" style="position: fixed;right: 1rem;top:8rem;z-index: 10;">
+                <div>
+                    <button class="btnFloat toHome" onclick="toHome()">
+                        🏠
+                    </button>
+                </div>
+            </div>
+            <div id="bgm-component" style="position: fixed;right: 1rem;top:11.5rem;z-index: 10;">
+                <div>
+                    <button class="btnFloat toGallery" onclick="toGallery()">
+                        📷
                     </button>
                 </div>
             </div>
@@ -403,7 +417,7 @@
         <div>
             <div class="dim" style="visibility: collapse;">
                 <div class="visitor_header">
-                    <button id="bgm-toggle" onclick="hideDimDiv()" style="margin: 2rem 0rem;">
+                    <button id="dim-closer" onclick="hideDimDiv()" style="margin: 2rem 0rem;">
                         X
                     </button>
                     <div class="rolling_container">

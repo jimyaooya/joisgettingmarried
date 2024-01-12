@@ -5,7 +5,7 @@ const kakaoApiInitialize = () => {
         container: '#kakaotalk-sharing-btn',
         objectType: 'feed',
         content: {
-            title: '이정욱 정지현 - 4월 28일 일요일 11:30 빌라드 지디 강남',
+            title: '💌초대합니다 | 이정욱 💍 정지현 | 4월28일 일요일 11:30am | 빌라드지디 강남',
             description: '#초대합니다#하우스웨딩',
             imageUrl:
                 'https://jimyaooya.github.io/joisgettingmarried/imgs/wp000a.jpg',

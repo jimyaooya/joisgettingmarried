@@ -10,10 +10,14 @@ const stopRolling = () => {
 }
 
 const showDimDiv = () => {
+    toHome();
     stopRolling();
     const dimDiv = document.querySelector('.dim');
     dimDiv.style.visibility = 'visible';
     clearDimDiv();
+
+    const btnVisitorToggle = document.querySelector('#visitor-toggle');
+    btnVisitorToggle.classList.add('on');
 
     getCommentsFromServer()
     .then(comments => {
@@ -27,6 +31,8 @@ const clearDimDiv = () => {
     const dimDiv = document.querySelector('.visitor_comment');
     dimDiv.innerHTML = '';
     currentComments.length = 0;
+    const btnVisitorToggle = document.querySelector('#visitor-toggle');
+    btnVisitorToggle.classList.remove('on');
 }
 
 const hideDimDiv = () => {
@@ -170,6 +176,7 @@ const movingSlowlyUp = () =>{
     if(dimDiv.scrollHeight - dimDiv.scrollTop <= dimDiv.clientHeight){
         dimDiv.scrollTop = 0;
     }
+
     rollingCommentsCallback2 = requestAnimationFrame(movingSlowlyUp);
 }
 
