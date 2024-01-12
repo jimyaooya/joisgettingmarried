@@ -9,6 +9,16 @@ const stopRolling = () => {
     rollingCommentsCallback2 && cancelAnimationFrame(rollingCommentsCallback2);
 }
 
+const toggleDim = () => {
+    const dimDiv = document.querySelector('.dim');
+    const isVisible = dimDiv.style.visibility === 'visible';
+    if(isVisible){
+        hideDimDiv();
+    }else{
+        showDimDiv();
+    }
+}
+
 const showDimDiv = () => {
     toHome();
     stopRolling();

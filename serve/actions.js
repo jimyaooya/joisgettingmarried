@@ -63,8 +63,7 @@ const onScroll = () => {
         if(!isVisible){
             showDimDiv();
             window.scrollTo({
-                top: window.scrollY - 250,
-                behavior: `smooth`
+                top: window.scrollY - 250
             });
         }
     }
