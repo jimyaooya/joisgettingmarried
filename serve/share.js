@@ -30,13 +30,17 @@ const kakaoApiInitialize = () => {
     });
 }
 
-const copyAccountNumToClipboard = (text) => {
+const copyAccountNumToClipboard = (accountKey) => {
+    const accountElement = document.getElementById(`account${accountKey}`);
+    if(!accountElement) return;
+
+
     const el = document.createElement('textarea');
-    el.value = text;
+    el.value = accountElement.innerText;
     document.body.appendChild(el);
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
 
-    toast('계좌번호가 복사되었습니다.');
+    toast(`계좌번호가 복사되었습니다`);
 }
