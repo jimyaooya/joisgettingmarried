@@ -154,10 +154,21 @@ const setVisibilityOfFamContactAccountWithMask = (masking) => {
 }
 
 const initFamContactAccount = () => {
-    const params = parseParams();
-    let masking = parseInt(params.masking);
-    if(masking === undefined || masking === null || isNaN(masking)){
-        masking = 63;
-    }
-    setVisibilityOfFamContactAccountWithMask(masking);
+    getAccountInfo().then((accounts) => {
+        console.log(accounts);
+        accounts.forEach((account) => {
+            const owElement = document.querySelector(`#accow${account.key}`);
+            owElement.innerText = account.owner;
+            const accountElement = document.querySelector(`#account${account.key}`);
+            accountElement.innerText = account.account;
+        });
+
+        const params = parseParams();
+        let masking = parseInt(params.masking);
+        if(masking === undefined || masking === null || isNaN(masking)){
+            masking = 63;
+        }
+        setVisibilityOfFamContactAccountWithMask(masking);
+    });
+
 }

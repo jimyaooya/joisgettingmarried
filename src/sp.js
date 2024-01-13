@@ -37,5 +37,14 @@ const insertComment = async (comment) => {
     return true;
 }
 
+const getAccountInfo = async () => {
+    const { data, error } = await supabase
+        .from('account')
+        .select('*')
+    if (error) console.log('error', error)
+    return data
+}
+
+window.getAccountInfo = getAccountInfo;
 window.getComments = getComments;
 window.insertComment = insertComment;
