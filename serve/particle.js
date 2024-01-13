@@ -24,7 +24,7 @@ const twinkle = (numObjects, canvas) => {
 
     const updateObjects = () => {
         const canvasWidth = canvas.clientWidth;
-        const canvasHeight = (canvas.clientHeight - 100);
+        const canvasHeight = canvas.clientHeight;
 
         objects.forEach((object) => {
             const direction = object.x < (canvasWidth * 0.5) ? -1 : 1;
@@ -70,7 +70,7 @@ const twinkle = (numObjects, canvas) => {
 
     const animate = () => {
         const canvasWidth = canvas.clientWidth;
-        const canvasHeight = (canvas.clientHeight - 100);
+        const canvasHeight = canvas.clientHeight;
         context.clearRect(0, 0, canvasWidth, canvasHeight);
 
         updateObjects();

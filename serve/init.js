@@ -42,8 +42,9 @@ const initSectionAnim = () => {
 const initCanvas = ()=>{
     const canvas = document.getElementById('canvas');
     const setCanvasSize = () => {
-        canvas.width = document.documentElement.clientWidth;
-        canvas.height = document.documentElement.clientHeight - 100;
+        const divTitleBg = document.querySelector('#titleBg');
+        canvas.width = divTitleBg.getBoundingClientRect().width;
+        canvas.height = divTitleBg.getBoundingClientRect().height;
     }
     
     setCanvasSize();

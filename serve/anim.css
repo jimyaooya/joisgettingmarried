@@ -18,6 +18,7 @@ section.visible {
     margin-bottom:-1rem;
     min-height: 100px;
     max-height: 150px;
+    z-index: 100;
 }
 
 .parallax > use {
@@ -59,6 +60,7 @@ section.visible {
         padding-top: 4rem;
         height: 5.1rem;
         min-height: 5.1rem;
+        z-index: 100;
     }
     h1 {
         font-size: 24px;
@@ -66,10 +68,9 @@ section.visible {
 }
 
 canvas {
-    width: calc(100%);
-    height: calc(100%);
     position: absolute;
     top:0;
+    left:0;
     z-index: 3;
     pointer-events: none;
     filter : blur(6px);
