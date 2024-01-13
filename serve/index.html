@@ -103,6 +103,7 @@
         document.addEventListener("DOMContentLoaded", updateCountdown);
         document.addEventListener("DOMContentLoaded", initAppSchemeButtons);
         document.addEventListener("DOMContentLoaded", kakaoApiInitialize);
+        document.addEventListener("DOMContentLoaded", initFamContactAccount);
         window.addEventListener('scroll', onScroll);
     </script>
 </head>
@@ -391,10 +392,42 @@
         <section class="section_head" style="margin:3rem 0rem">
             <span style="position:relative; bottom: -2.5rem;">♥</span>
             <h1 class="greetings section_head">마음보내실곳</h1>
-            <h2>계좌정보...</h2>
-            <br/>
-            <div class="splitter">
+            <div class="card" style="margin-top: 1rem;">
+                <div class="famcon noneFlex">
+                    <div class="famblock" id="famContact0" onclick="copyAccountNumToClipboard()">
+                        <span class="famblockHeader">이상의</span>
+                        <span>신한 000-000-000000</span>
+                        <span class="gg-copy" style="color:#a88"></span>
+                    </div>
+                    <div class="famblock" id="famContact1" onclick="copyAccountNumToClipboard()">
+                        <span class="famblockHeader">유예순</span>
+                        <span>기업 0000-00000-0000</span>
+                        <span class="gg-copy" style="color:#a88"></span>
+                    </div>
+                    <div class="famblock" id="famContact2" onclick="copyAccountNumToClipboard()">
+                        <span class="famblockHeader">이정욱</span>
+                        <span>우리 0000-00-0000000</span>
+                        <span class="gg-copy" style="color:#a88"></span>
+                    </div>
+                    <span id="famContactSpliter">……</span>
+                    <div class="famblock" id="famContactA" onclick="copyAccountNumToClipboard()">
+                        <span class="famblockHeader">정병선</span>
+                        <span>신한 000-000-000000</span>
+                        <span class="gg-copy" style="color:#a88"></span>
+                    </div>
+                    <div class="famblock" id="famContactB" onclick="copyAccountNumToClipboard()">
+                        <span class="famblockHeader">장영숙</span>
+                        <span>기업 0000-00000-0000</span>
+                        <span class="gg-copy" style="color:#a88"></span>
+                    </div>
+                    <div class="famblock" id="famContactC" onclick="copyAccountNumToClipboard()">
+                        <span class="famblockHeader">정지현</span>
+                        <span>우리 0000-00-0000000</span>
+                        <span class="gg-copy" style="color:#a88"></span>
+                    </div>
+                </div>
             </div>
+            <br/>
         </section>
         <section class="section_head" style="margin-top: 2rem;">
             <span style="position:relative; bottom: -2.5rem;">♥</span>

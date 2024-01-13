@@ -116,3 +116,48 @@ const makeImgsElements = () => {
 
     });
 }
+
+
+const parseParams = () => {
+    const params = {};
+    const paramsStr = window.location.search.substring(1);
+    const paramsArr = paramsStr.split("&");
+    paramsArr.forEach((param) => {
+        const key = param.split("=")[0];
+        const value = param.split("=")[1];
+        params[key] = value;
+    });
+    return params;
+}
+
+/**
+ * 
+ * @param {number} masking 
+ */
+const setVisibilityOfFamContactAccountWithMask = (masking) => {
+    const accounts = [
+        {ele : document.querySelector('#famContact0'), key : "000001"}, // 1
+        {ele : document.querySelector('#famContact1'), key : "000010"}, // 2
+        {ele : document.querySelector('#famContact2'), key : "000100"}, // 4
+        {ele : document.querySelector('#famContactA'), key : "001000"}, // 8
+        {ele : document.querySelector('#famContactB'), key : "010000"}, // 16
+        {ele : document.querySelector('#famContactC'), key : "100000"} // 32
+    ];
+    let total = 0;
+    accounts.forEach((account) => {
+        const num = parseInt(account.key, 2);
+        const isVisible = (num & masking) > 0;
+        total += isVisible ? num : 0;
+        account.ele.style.display = isVisible ? 'grid' : 'none';
+    });
+    document.querySelector('#famContactSpliter').style.display = ((total & 7) > 0) && ((total & 56)> 0) ? 'block' : 'none';
+}
+
+const initFamContactAccount = () => {
+    const params = parseParams();
+    let masking = parseInt(params.masking);
+    if(masking === undefined || masking === null || isNaN(masking)){
+        masking = 63;
+    }
+    setVisibilityOfFamContactAccountWithMask(masking);
+}
