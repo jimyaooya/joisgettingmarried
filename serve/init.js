@@ -84,7 +84,7 @@ const initTouch = () => {
         const distY = touchStartY - touch.clientY;
 
         if (Math.abs(distY) < Math.abs(distX)) {
-            window.scrollTo(0, startScrollY + distX * 0.5);
+            window.scrollTo(0, startScrollY + distX);
             e.preventDefault();
         }
     }
@@ -93,6 +93,8 @@ const initTouch = () => {
         const touch = e.changedTouches[0];
         touchEndX = touch.clientX;
         touchEndY = touch.clientY;
+        const distX = touchStartX - touch.clientX;
+        const distY = touchStartY - touch.clientY;
         if (Math.abs(distY) < Math.abs(distX)) {
             remainEasingAmount = (touchStartX - touchEndX) * 0.1;
             easing();
