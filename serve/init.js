@@ -76,20 +76,10 @@ const initTouch = () => {
 
     let remainEasingAmount = 0.5;
     const touchMove = (e) => {
-        const touch = e.touches[0];
-        const distX = touchStartX - touch.clientX;
-        const distY = touchStartY - touch.clientY;
-        
-        if (Math.abs(distY) < Math.abs(distX)) {
-            // document scroll up
-            window.scrollTo(0, startScrollY + distX * 0.5);
-        }
     }
 
     const touchEnd = (e) => {
-        
         const touch = e.changedTouches[0];
-        console.log(e);
         touchEndX = touch.clientX;
         touchEndY = touch.clientY;
         remainEasingAmount = (touchStartX - touchEndX) * 0.1;
