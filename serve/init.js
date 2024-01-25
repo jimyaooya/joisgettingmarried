@@ -46,6 +46,7 @@ const initTouch = () => {
     let touchStartY;
     let touchEndX;
     let touchEndY;
+    let startScrollY;
     
     let easeReq = undefined;
     const easing = () => {
@@ -67,6 +68,7 @@ const initTouch = () => {
         const touch = e.touches[0];
         touchStartX = touch.clientX;
         touchStartY = touch.clientY;
+        startScrollY = window.scrollY;
         
         remainEasingAmount = 0;
         cancelAnimationFrame(easeReq);
@@ -74,27 +76,23 @@ const initTouch = () => {
 
     let remainEasingAmount = 0.5;
     const touchMove = (e) => {
-
-
         const touch = e.touches[0];
         const distX = touchStartX - touch.clientX;
-        if(distX === undefined || Math.abs(distX) < 13){
-            return;
-        }
         const distY = touchStartY - touch.clientY;
-        touchEndX = touch.clientX;
-        touchEndY = touch.clientY;
         
         if (Math.abs(distY) < Math.abs(distX)) {
             // document scroll up
-            window.scrollBy(0, distX);
+            window.scrollTo(0, startScrollY + distX * 0.5);
         }
-        remainEasingAmount = (touchStartX - touchEndX) * 4;
-        touchStartX = touchEndX;
-        touchStartY = touchEndY;
     }
 
     const touchEnd = (e) => {
+        
+        const touch = e.changedTouches[0];
+        console.log(e);
+        touchEndX = touch.clientX;
+        touchEndY = touch.clientY;
+        remainEasingAmount = (touchStartX - touchEndX) * 0.1;
         easing();
     }
 
