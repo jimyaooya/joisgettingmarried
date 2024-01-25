@@ -74,11 +74,16 @@ const initTouch = () => {
 
     let remainEasingAmount = 0.5;
     const touchMove = (e) => {
+
+
         const touch = e.touches[0];
+        const distX = touchStartX - touch.clientX;
+        if(distX === undefined || Math.abs(distX) < 13){
+            return;
+        }
+        const distY = touchStartY - touch.clientY;
         touchEndX = touch.clientX;
         touchEndY = touch.clientY;
-        const distX = touchStartX - touchEndX;
-        const distY = touchStartY - touchEndY;
         
         if (Math.abs(distY) < Math.abs(distX)) {
             // document scroll up
