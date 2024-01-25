@@ -37,6 +37,60 @@ const initSectionAnim = () => {
 }
 
 /**
+ * init touch event
+ */
+const initTouch = () => {
+    const touchTargetElement = document.querySelector('.ani_start');
+    let touchStartX;
+    let touchStartY;
+    let touchEndX;
+    let touchEndY;
+    
+    let easeReq = undefined;
+    const easing = () => {
+        window.scrollBy(0, remainEasingAmount);
+        remainEasingAmount *= 0.95;
+        if (Math.abs(remainEasingAmount) > 0.1) {
+            easeReq = requestAnimationFrame(easing);
+        }
+    }
+
+    const touchStart = (e) => {
+        const touch = e.touches[0];
+        touchStartX = touch.clientX;
+        touchStartY = touch.clientY;
+        
+        remainEasingAmount = 0;
+        cancelAnimationFrame(easeReq);
+    }
+
+    let remainEasingAmount = 0.5;
+    const touchMove = (e) => {
+        const touch = e.touches[0];
+        touchEndX = touch.clientX;
+        touchEndY = touch.clientY;
+        const distX = touchStartX - touchEndX;
+        const distY = touchStartY - touchEndY;
+        
+        if (Math.abs(distY) < Math.abs(distX)) {
+            // document scroll up
+            window.scrollBy(0, distX);
+        }
+        remainEasingAmount = (touchStartX - touchEndX) * 4;
+        touchStartX = touchEndX;
+        touchStartY = touchEndY;
+    }
+
+    const touchEnd = (e) => {
+        easing();
+    }
+
+    touchTargetElement.addEventListener("touchstart", touchStart, false);
+    touchTargetElement.addEventListener("touchmove", touchMove, false);
+    touchTargetElement.addEventListener("touchend", touchEnd, false);
+}
+
+/**
  * canvas initialization
  */
 const initCanvas = ()=>{
