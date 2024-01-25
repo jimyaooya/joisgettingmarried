@@ -42,6 +42,7 @@ const initSectionAnim = () => {
 const initTouch = () => {
     const scrollAnimationElement = document.querySelector(".scroll-animation");
     const touchTargetElement = document.querySelector('.ani_start');
+
     let touchStartX;
     let touchStartY;
     let touchEndX;
@@ -76,6 +77,14 @@ const initTouch = () => {
 
     let remainEasingAmount = 0.5;
     const touchMove = (e) => {
+        const touch = e.touches[0];
+        const distX = touchStartX - touch.clientX;
+        const distY = touchStartY - touch.clientY;
+
+        if (Math.abs(distY) < Math.abs(distX)) {
+            window.scrollTo(0, startScrollY + distX * 0.5);
+            e.preventDefault();
+        }
     }
 
     const touchEnd = (e) => {
