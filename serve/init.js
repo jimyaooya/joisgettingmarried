@@ -40,6 +40,7 @@ const initSectionAnim = () => {
  * init touch event
  */
 const initTouch = () => {
+    const scrollAnimationElement = document.querySelector(".scroll-animation");
     const touchTargetElement = document.querySelector('.ani_start');
     let touchStartX;
     let touchStartY;
@@ -52,6 +53,13 @@ const initTouch = () => {
         remainEasingAmount *= 0.95;
         if (Math.abs(remainEasingAmount) > 0.1) {
             easeReq = requestAnimationFrame(easing);
+        }
+
+        // if scrollAnimationElement is out of screen, stop animation
+        const scrollAnimationElementRect = scrollAnimationElement.getBoundingClientRect();
+        const isOutOfScreen = scrollAnimationElementRect.bottom < 0 || scrollAnimationElementRect.top > window.innerHeight;
+        if(isOutOfScreen){
+            cancelAnimationFrame(easeReq);
         }
     }
 
