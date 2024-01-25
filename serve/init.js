@@ -72,7 +72,9 @@ const initTouch = () => {
         startScrollY = window.scrollY;
         
         remainEasingAmount = 0;
-        cancelAnimationFrame(easeReq);
+        if(easeReq){
+            cancelAnimationFrame(easeReq);
+        }
     }
 
     let remainEasingAmount = 0.5;
@@ -91,8 +93,10 @@ const initTouch = () => {
         const touch = e.changedTouches[0];
         touchEndX = touch.clientX;
         touchEndY = touch.clientY;
-        remainEasingAmount = (touchStartX - touchEndX) * 0.1;
-        easing();
+        if (Math.abs(distY) < Math.abs(distX)) {
+            remainEasingAmount = (touchStartX - touchEndX) * 0.1;
+            easing();
+        }
     }
 
     touchTargetElement.addEventListener("touchstart", touchStart, false);
