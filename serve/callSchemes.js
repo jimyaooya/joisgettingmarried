@@ -4,20 +4,20 @@ const setScheme = (scheme) => {
     currentTargertScheme = scheme;
 
     // get dim element
-    const dim = document.getElementById('dim_for_navi');
-    dim.style.display = 'visible';
+    const dim = document.querySelector('.dim_for_navi');
+    dim.style.visibility = 'visible';
 }
 
 const closeNaviDim = () =>{
-    const dim = document.getElementById('dim_for_navi');
-    dim.style.display = 'none';
+    const dim = document.querySelector('.dim_for_navi');
+    dim.style.visibility = 'collapse';
 }
 
 const toParkingLot = () => {
     try{
         const lat = 37.51675036659504;
         const lng = 127.04100014039027;
-        const name = 'SK 허브블루 주차장';
+        const name = 'SK허브블루 주차장';
         callSchemes(lat, lng, name);
     }finally{
         closeNaviDim();
