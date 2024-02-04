@@ -45,18 +45,18 @@ const callKakaomap = (lat, lng, walkOrCar) => {
     window.location.href = url;
 }
 
-const callNavermap = (lat, lng, name,walkOrCar) => {
-    const url = `nmap://route/${walkOrCar ? 'car' : 'public'}?dlat=${lat}&dlng=${lng}&dname=${name}&appScheme=callSchemes://`;
+const callNavermap = (lat, lng, name, walkOrCar) => {
+    const url = `nmap://route/${walkOrCar ? 'public' : 'car'}?dlat=${lat}&dlng=${lng}&dname=${name}&appScheme=callSchemes://`;
     window.location.href = url;
 }
 
-const callSchemes = (lat, lng, name) => {
+const callSchemes = (lat, lng, name, walkOrCar) => {
     if(currentTargertScheme === 'tmap') {
         callTmap(lat, lng, name);
     } else if(currentTargertScheme === 'kakaomap') {    
-        callKakaomap(lat, lng);
+        callKakaomap(lat, lng, walkOrCar);
     } else if(currentTargertScheme === 'navermap') {
-        callNavermap(lat, lng, name);
+        callNavermap(lat, lng, name, walkOrCar);
     }else{
         console.error('Invalid scheme');
     }
