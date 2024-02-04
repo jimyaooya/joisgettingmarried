@@ -167,7 +167,7 @@
                     </g>
                 </svg>
             </div>
-            <div id="bgm-component" style="position: fixed;right: 1rem;top:1rem;z-index: 10;">
+            <div id="bgmBtn" class="floatingComponent" style="position: fixed;right: 1rem;top:1rem;z-index: 10;">
                 <div class="audio-player">
                     <audio id="bgm-player" loop="loop" autoplay="autoplay">
                         <source src="./ppp.mp3">
@@ -177,28 +177,28 @@
                     </button>
                 </div>
             </div>
-            <div id="bgm-component" style="position: fixed;right: 1rem;top:4.5rem;z-index: 10;">
+            <div class="floatingComponent" style="position: fixed;right: 1rem;top:4.5rem;z-index: 10;">
                 <div>
                     <button id="visitor-toggle" class="btnFloat" onclick="toggleDim()">
                         🖍
                     </button>
                 </div>
             </div>
-            <div id="bgm-component" style="position: fixed;right: 1rem;top:8rem;z-index: 10;">
+            <div class="floatingComponent" style="position: fixed;right: 1rem;top:8rem;z-index: 10;">
                 <div>
                     <button class="btnFloat toHome" onclick="toHome()">
                         💌
                     </button>
                 </div>
             </div>
-            <div id="bgm-component" style="position: fixed;right: 1rem;top:11.5rem;z-index: 10;">
+            <div class="floatingComponent" style="position: fixed;right: 1rem;top:11.5rem;z-index: 10;">
                 <div>
                     <button class="btnFloat toMap" onclick="toMap()">
                         🚘
                     </button>
                 </div>
             </div>
-            <div id="bgm-component" style="position: fixed;right: 1rem;top:15rem;z-index: 10;">
+            <div class="floatingComponent" style="position: fixed;right: 1rem;top:15rem;z-index: 10;">
                 <div>
                     <button class="btnFloat toGallery" onclick="toGallery()">
                         📷
@@ -338,7 +338,18 @@
                         <span class="arrow_left"></span>
                     </div>
                     <div id="map_navi_description">
-                        <span>오시는 길을 선택해주세요<br/>↓</span>
+                        <p style="text-align: left;">
+                            <span>지하철 이용시</span>
+                            <span style="font-weight: 300;">· 7호선 분당선 강남구청역 2번출구에서 셔틀버스 이용</span><br/>
+                            <span>버스 이용시</span>
+                            <span style="font-weight: 300;">· 242, 401, 3414, 301, 342, 472, 3426, 4312번 강남구청역 하차</span>
+                            <span style="font-weight: 300;">· 7호선 분당선 강남구청역 2번출구에서 셔틀버스 이용</span><br/>
+                            <span>자가용 이용 시</span>
+                            <span style="font-weight: 300;">· 강남구 논현동 241-3번지 SK허브블루 (학동로 342)</span>
+                            <span style="font-weight: 300;">· 지하주차장 이용 (7호선, 분당선 강남구청역 연결)</span>
+                            <span style="font-weight: 300;">· 주차 후 2번 출구에서 셔틀버스 이용</span>
+                            <span style="font-weight: 300;">· 셔틀버스 운행시간 10:30 ~ 12:00 (90분간), 12:30 ~ 14:00 (90분간) 10분간격</span>
+                        </p>
                     </div>
                     <div id="navi_after" class="navi_arrow" onclick="btnClickNextPath()">
                         <span class="arrow_right"></span>

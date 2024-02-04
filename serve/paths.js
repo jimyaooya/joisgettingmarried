@@ -315,15 +315,15 @@ const displayDescriptionByIdx = () => {
     }
 }
 
-const animateZoomPath = () => {
-    spanningTime = ((currentIdx === currentAnimTargetPaths.length || currentIdx === currentAnimTargetPaths.length + 1) ? 6000 : (currentIdx === 0 ? 3500 : currentAnimTargetPaths[currentIdx-1].spanningTime)) * spanningTimefacor;
-    animTargetSpanningTime = new Date().getTime() + spanningTime;
-    animCallback = setTimeout(() => {
-        displayDescriptionByIdx();
-        currentIdx = (currentIdx + 1) % (currentAnimTargetPaths.length + 2);
-        animateZoomPath();
-    }, spanningTime);
-}
+// const animateZoomPath = () => {
+//     spanningTime = ((currentIdx === currentAnimTargetPaths.length || currentIdx === currentAnimTargetPaths.length + 1) ? 6000 : (currentIdx === 0 ? 3500 : currentAnimTargetPaths[currentIdx-1].spanningTime)) * spanningTimefacor;
+//     animTargetSpanningTime = new Date().getTime() + spanningTime;
+//     animCallback = setTimeout(() => {
+//         displayDescriptionByIdx();
+//         currentIdx = (currentIdx + 1) % (currentAnimTargetPaths.length + 2);
+//         animateZoomPath();
+//     }, spanningTime);
+// }
 
 const setVisilbities = (filter, paths) => {
     const elements = document.querySelectorAll('[id*="way_"]');
@@ -344,7 +344,7 @@ const setVisilbities = (filter, paths) => {
     currentIdx = 0;
     displayDescriptionByIdx();
     currentIdx = 1;
-    animateZoomPath();
+    // animateZoomPath();
 };
 
 const calculateBounds = (paths) => {
