@@ -8,11 +8,24 @@
     z-index: 100;
     letter-spacing: 0.15rem;
 }
+.for_dim_close{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 10vh;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    cursor: pointer;
+    display: flex;
+}
 
 .first_of_two{
     display: flex;
     width: 50%;
-    height: 100vh;
+    height: 90vh;
     float: left;
     justify-content: center;
     align-items: center;
@@ -23,7 +36,7 @@
 .second_of_two{
     display: flex;
     width: 50%;
-    height: 100vh;
+    height: 90vh;
     float: right;
     justify-content: center;
     align-items: center;
