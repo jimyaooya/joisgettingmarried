@@ -486,6 +486,25 @@ span.light{
     line-height: 2rem;
     max-width: 3.2rem;
 }
+
+@media screen and (min-width: 768px) {
+    .famblockAcc{
+        text-align: center;
+        display: grid;
+        grid-template-columns: repeat(1, 2fr 5fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .famblockAcc {
+        text-align: left;
+        display: grid;
+        grid-template-columns: repeat(1, 12fr);
+        margin-left: 1.5rem;
+    }
+}
+
+
 .famblock{
     font-family: "Noto Sans KR";
     background-color: transparent;
@@ -495,13 +514,12 @@ span.light{
     margin: 0.5rem 1rem;
     padding: 2.5rem 0rem;
     display:grid;
-    grid-template-columns: repeat(1, 2fr 5fr 1fr);
+    grid-template-columns: repeat(1, 7fr 1fr);
     justify-content: center;
     align-items: center;
     text-align: left;
 }
 .famblockHeader{
-    text-align: center;
     font-family: "GowunBatang-Regular";
     font-weight: bold;
     float:none;
