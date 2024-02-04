@@ -343,7 +343,6 @@ const setVisilbities = (filter, paths) => {
     clearAnimCallback();
     currentIdx = 0;
     displayDescriptionByIdx();
-    currentIdx = 1;
     // animateZoomPath();
 };
 
