@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="anim.css">
     <link rel="stylesheet" href="toast.css">
     <link rel="stylesheet" href="visitorboard.css">
+    <link rel="stylesheet" href="dimForNavi.css">
     <head>
     <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=vu1xmgid7i"></script>
     <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.min.js" integrity="sha384-6MFdIr0zOira1CHQkedUqJVql0YtcZA1P0nbPrQYJXVJZUkTk/oX4U9GhUIs3/z8" crossorigin="anonymous"></script>
@@ -409,15 +410,15 @@
             </div>
             <div class="ways" id="appSchemeButtonsContainer">
                 <div class="btnContainer" style="grid-template-columns: repeat(3, 1fr);">
-                    <div class="btnWay btnWay_left" onclick="callTmap(37.5140508,127.0372835,'빌라드지디강남')">
+                    <div class="btnWay btnWay_left" onclick="setScheme('tmap')">
                         <div class="appicon" style="background-image: url(./imgs/appicon_tmap.webp);">　</div><br/>
                         <span style="color:#433">티맵</span>
                     </div>
-                    <div class="btnWay btnWay_middle" onclick="callKakaomap(37.5140508,127.0372835)">
+                    <div class="btnWay btnWay_middle" onclick="setScheme('kakaomap')">
                         <div class="appicon" style="background-image: url(./imgs/appicon_kakaomap.webp);">　</div><br/>
                         <span style="color:#433;">카카오맵</span>
                     </div>
-                    <div class="btnWay btnWay_right" onclick="callNavermap(37.5140508,127.0372835,'빌라드지디강남')">
+                    <div class="btnWay btnWay_right" onclick="setScheme('navermap')">
                         <div class="appicon" style="background-image: url(./imgs/appicon_navermap.webp);">　</div><br/>
                         <span style="color:#433">네이버맵</span>
                     </div>
@@ -532,6 +533,22 @@
                             <input type="text" id="visitor_input"  onkeyup="submitEnter(event)" placeholder="방명록을 남겨주세요" spellcheck="false"><br/>
                             <button id="visitor_submit" onclick="submitVisitorComment()">등록</button>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="dim_for_navi" style="display: none;">
+                <div class="first_of_two" onclick="toWeddingHall()">
+                    <div style="text-shadow: 0 0.3rem 1rem #a35;">
+                        <span style="opacity: 1.0;font-size: 3rem;line-height: 5rem;">💒</span><br/>
+                        <span class="hard" style="color:#fee;">식장으로</span>
+                    </div>
+                </div>
+                <div class="second_of_two" onclick="toParkingLot()">
+                    <div style="text-shadow: 0 0.3rem 1rem #53a;">
+                        <span style="opacity: 1.0;font-size: 3rem;line-height: 5rem;">🅿️</span><br/>
+                        <span class="hard" style="color:#33a;">주차장으로</span>
                     </div>
                 </div>
             </div>

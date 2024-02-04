@@ -1,0 +1,33 @@
+.dim_for_navi {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(49, 7, 27, 0.5);
+    z-index: 100;
+    letter-spacing: 0.15rem;
+}
+
+.first_of_two{
+    display: flex;
+    width: 50%;
+    height: 100vh;
+    float: left;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.second_of_two{
+    display: flex;
+    width: 50%;
+    height: 100vh;
+    float: right;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;    
+}
+
