@@ -221,6 +221,9 @@ const setVisibilityOfFamContactAccountWithMask = (masking) => {
         account.ele.style.display = isVisible ? 'grid' : 'none';
     });
     document.querySelector('#famContactSpliter').style.display = ((total & 7) > 0) && ((total & 56)> 0) ? 'block' : 'none';
+    if(total === 0) {
+        document.querySelector('#fam_account_con').style.display = 'none';
+    }
 }
 
 const initFamContactAccount = () => {
