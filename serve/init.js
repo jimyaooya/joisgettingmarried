@@ -225,7 +225,7 @@ const setVisibilityOfFamContactAccountWithMask = (masking) => {
 
 const initFamContactAccount = () => {
     getAccountInfo().then((accounts) => {
-        console.log(accounts);
+        // console.log(accounts);
         accounts.forEach((account) => {
             const owElement = document.querySelector(`#accow${account.key}`);
             owElement.innerText = account.owner;

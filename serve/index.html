@@ -56,17 +56,21 @@
             var button = document.getElementById("bgm-toggle");
 
             if (audio.paused) {
-                audio.play()
-                .then(()=>{   
-                    button.active = true;
-                    button.classList.add("on");
-                })
-                .catch((e)=>{
-                });
+                setTimeout(()=>{
+                    audio.play()
+                    .then(()=>{   
+                        button.active = true;
+                        button.classList.add("on");
+                    })
+                    .catch((e)=>{
+                    });
+                }, 500);
             } else {
-                audio.pause();
-                button.active = false;
-                button.classList.remove("on");
+                setTimeout(()=>{
+                    audio.pause();
+                    button.active = false;
+                    button.classList.remove("on");
+                }, 500);
             }
         }
         
@@ -93,6 +97,11 @@
                 event.preventDefault();
                 document.getElementById("visitor_submit").click();
             }
+        }
+
+        const showoffBgmButtonIfiOS = () => {
+            const bgmBtn = document.getElementById("bgmBtn");
+            bgmBtn.style.visibility = "collapse";
         }
 
         //document.addEventListener("DOMContentLoaded", initMusic);
