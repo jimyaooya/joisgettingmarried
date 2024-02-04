@@ -100,11 +100,14 @@
         }
 
         const showoffBgmButtonIfiOS = () => {
-            const bgmBtn = document.getElementById("bgmBtn");
-            bgmBtn.style.visibility = "collapse";
+            const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            if(isiOS){
+                document.getElementById("bgmBtn").style.invisibility = "collaspse";
+            }
         }
 
         //document.addEventListener("DOMContentLoaded", initMusic);
+        document.addEventListener("DOMContentLoaded", showoffBgmButtonIfiOS);
         document.addEventListener("DOMContentLoaded", initSectionAnim);
         document.addEventListener("DOMContentLoaded", initCanvas);
         document.addEventListener("DOMContentLoaded", initMap);
