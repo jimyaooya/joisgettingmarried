@@ -510,7 +510,7 @@ span.light{
     color: rgb(14, 54, 134);
 }
 .famblock:hover{
-    background-color: rgba(225, 200, 200, 0.1);
+    background-color: rgba(200, 200, 225, 0.1);
 }
 .famblock.borderOff{
     border-bottom: none;

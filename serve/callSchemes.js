@@ -18,7 +18,7 @@ const toParkingLot = () => {
         const lat = 37.51675036659504;
         const lng = 127.04100014039027;
         const name = 'SK허브블루 주차장';
-        callSchemes(lat, lng, name);
+        callSchemes(lat, lng, name, false);
     }finally{
         closeNaviDim();
     }
@@ -29,7 +29,7 @@ const toWeddingHall = () => {
         const lat = 37.5140508;
         const lng = 127.0372835;
         const name = '빌라드지디강남';
-        callSchemes(lat, lng, name);
+        callSchemes(lat, lng, name, true);
     }finally{
         closeNaviDim();
     }
@@ -40,13 +40,13 @@ const callTmap = (lat, lng, name) => {
     window.location.href = url;
 }
 
-const callKakaomap = (lat, lng) => {
-    const url = `kakaomap://route?ep=${lat},${lng}&by=CAR`;
+const callKakaomap = (lat, lng, walkOrCar) => {
+    const url = `kakaomap://route?ep=${lat},${lng}&by=${walkOrCar ? 'PUBLICTRANSIT' : 'CAR'}`;
     window.location.href = url;
 }
 
-const callNavermap = (lat, lng, name) => {
-    const url = `nmap://route/walk?dlat=${lat}&dlng=${lng}&dname=${name}&appScheme=callSchemes://`;
+const callNavermap = (lat, lng, name,walkOrCar) => {
+    const url = `nmap://route/${walkOrCar ? 'car' : 'public'}?dlat=${lat}&dlng=${lng}&dname=${name}&appScheme=callSchemes://`;
     window.location.href = url;
 }
 
