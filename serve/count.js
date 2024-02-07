@@ -21,8 +21,6 @@ const updateCountdown = () => {
     cdMin.textContent = minutesDiff;
     const cdSec = document.getElementById("cdseconds");
     cdSec.textContent = secondsDiff;
-    const ddays = document.getElementById("ddays")
-    ddays.textContent = `${daysDiff}일 남았습니다`
 
     setTimeout(updateCountdown, 1000);
 }
